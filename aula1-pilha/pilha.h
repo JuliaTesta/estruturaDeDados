@@ -7,7 +7,7 @@ class pilha{
 
     private:
     int tamanho;
-    TipoItem* estrutura; //ponteiro chamado estrutura, que vai apontar para um armário com brinquedos (números)
+    TipoItem* estrutura; //ponteiro estrutura do tipo int
     
     public:
     pilha();  //função construtora tem o mesmo nome da classe

@@ -7,7 +7,7 @@ using namespace std;
     pilha::pilha()  //função construtora tem o mesmo nome da classe
     {
         tamanho = 0; 
-        estrutura = new TipoItem[max_itens]; //Ei computador, crie um armário com max_itens (100) prateleiras e cole essa minha etiqueta estrutura nesse armário
+        estrutura = new TipoItem[max_itens]; //'estrutura' é um ponteiro que aponta para o endereço de cada item, ou seja, agora é possivel acessa-los. NEW permite criar vetores de forma dinamica
     }
     pilha::~pilha() //função destrutora
     {
