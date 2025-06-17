@@ -12,7 +12,12 @@
 
     pilhadinamica :: ~pilhadinamica()
     {
-
+        No* Notemp;
+        while(NoTopo!=NULL){
+            Notemp = NoTopo;
+            NoTopo = NoTopo -> proximo;
+            delete Notemp;
+        }
     }
 
     bool pilhadinamica :: estavazio()
@@ -38,8 +43,8 @@
             cout << "A pilha está cheia!\n";
         } else {
             No* NoNovo = new No; //ponteiro aponta para No, que é o tipo do objeto (mas apenas seu endereço), por isso é necessario criar um new. 
-            NoNovo -> valor = item;
-            NoNovo -> proximo = NoTopo;
+            NoNovo -> valor = item; //valor do nó novo recebe item
+            NoNovo -> proximo = NoTopo; //nó novo é o nó do topo
             NoTopo = NoNovo;
         }
     }
@@ -52,10 +57,10 @@
         } else{
             No* Notemp;
             Notemp = NoTopo; //temp recebe o endereço de noTopo
-            TipoItem item = NoTopo -> valor; //item recebe o valor de nó topo
-            NoTopo = NoTopo -> proximo; 
-            delete Notemp;
-            return item; //NAO ENTENDIIIIIIII
+            TipoItem item = NoTopo -> valor; //salva o valor do topo em item
+            NoTopo = NoTopo -> proximo; //agora NoTopo esta no proximo
+            delete Notemp; //posso apagar o antigo NoTopo
+            return item; //Imagina que você quer armazenar os itens removidos para fazer outra coisa depois. Sem o return, você perderia esses valores
         }
     }
 
@@ -65,7 +70,7 @@
         cout << "Pilha: [";
         while(NoTemp != NULL){
             cout << NoTemp -> valor << " ";
-            cout << NoTemp ->proximo;
+            NoTemp = NoTemp ->proximo;
         }
         cout << "]\n";
     }
