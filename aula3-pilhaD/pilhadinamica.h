@@ -1,7 +1,5 @@
 //onde esta as funcoes
-
 typedef int TipoItem;
-
 
 //struct é igual class, a diferença é que nele tudo é publico
 struct No { //cada nó guarda o valor e o endereço pro próximo

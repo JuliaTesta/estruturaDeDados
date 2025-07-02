@@ -32,7 +32,7 @@ using namespace std;
             tamanho++;
         }
     }
-    TipoItem pilha::remover() //tem entrada e nao tem saida
+    TipoItem pilha::remover() //só tem saida
     {
         if(estaVazia()){
             cout<< "A pilha esta vazia!\n";

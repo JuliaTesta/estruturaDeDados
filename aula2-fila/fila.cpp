@@ -9,7 +9,7 @@ Fila::Fila()
 {
    primeiro = 0;
    ultimo = 0;
-   estrutura = new TipoItem[max_itens];
+   estrutura = new TipoItem[max_itens]; //estrutura é um vetor que aponta para cada endereço dos itens
 } 
 
 Fila::~Fila()
@@ -29,7 +29,7 @@ bool Fila::estaVazio()
 
 void Fila::inserir(TipoItem item)
 {
-    if(estaCheio()){
+    if(estaCheio()){ //só tem entrada, não retorna nada
         cout << "A fila esta cheia!\n";
     } else{
         estrutura[ultimo % max_itens] = item; //recebe item
@@ -37,7 +37,7 @@ void Fila::inserir(TipoItem item)
     }
 }
 
-TipoItem Fila::remover()
+TipoItem Fila::remover() //só tem saída
 {
     if(estaVazio()){
         cout << "A fila esta vazia!\n";
