@@ -53,7 +53,7 @@ using namespace std;
                 ultimo->proximo = NoNovo; //o proximo do ultimo é o noNovo
             }
 
-            ultimo = NoNovo;
+            ultimo = NoNovo; //primeiro e ultimo sao iguais
         }
     }
 
@@ -64,7 +64,7 @@ using namespace std;
             return 0;
         } else{
             No* temp = primeiro; //temp mostra quem vai ser removido 
-            TipoItem item = primeiro->valor;
+            TipoItem item = primeiro->valor; //saída é o valor do primeiro
             primeiro = primeiro->proximo; //primeiro passa a ser o próximo
             
             if(primeiro == NULL){ //quer dizer que não tinha próximo
@@ -76,4 +76,12 @@ using namespace std;
     }
 
     void  filadinamica::imprimir()
-    {}
+    {
+        No* temp;
+        cout << "Fila: [ ";
+        while (temp != NULL){
+            cout << temp ->valor << " ";
+        }
+
+        cout << " ]\n";
+    }
