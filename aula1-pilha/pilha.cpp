@@ -41,7 +41,7 @@ using namespace std;
         }
         else{
             tamanho--;
-            return estrutura[tamanho]; //tamanho é o proximo item que vai receber, topo= tamanho -1
+            return estrutura[tamanho]; //tamanho é o proximo item que vai receber, topo = tamanho -1
         }
     }
     void pilha::imprimir()

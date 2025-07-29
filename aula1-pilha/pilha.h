@@ -15,7 +15,7 @@ class pilha{
     bool estaCheia(); //função que verifica se a pilha está cheia 
     bool estaVazia();
     void inserir(TipoItem item); //void pq nao tem saida, apenas entrada
-    TipoItem remover(); //tem entrada e nao tem saida
+    TipoItem remover(); //nao tem entrada e tem saida
     void imprimir();
     int qualTamanho();
 };

@@ -9,7 +9,7 @@ Fila::Fila()
 {
    primeiro = 0;
    ultimo = 0;
-   estrutura = new TipoItem[max_itens]; //estrutura é um vetor que aponta para cada endereço dos itens
+   estrutura = new TipoItem[max_itens]; //Array TipoItem com tamanho max_itens onde os itens da fila serão realmente armazenados
 } 
 
 Fila::~Fila()

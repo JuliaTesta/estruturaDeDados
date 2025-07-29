@@ -8,7 +8,7 @@ struct No { //cada nó guarda o valor e o endereço pro próximo
     No* proximo; //ponteiro para um outro nó
 };
 
-class pilhadinamica{
+class pilhadinamica{    
     private:
     No* NoTopo; // ponteiro para o nó que está no topo. assim consigo acessar todos os outros nós
 

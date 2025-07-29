@@ -14,7 +14,7 @@
     {
         No* Notemp;
         while(NoTopo!=NULL){
-            Notemp = NoTopo;
+            Notemp = NoTopo; //sao o mesmo item, mas precisa do temp para saber o enderço do proximo 
             NoTopo = NoTopo -> proximo;
             delete Notemp;
         }
