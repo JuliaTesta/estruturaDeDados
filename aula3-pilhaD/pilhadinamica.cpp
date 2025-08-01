@@ -69,7 +69,7 @@
         No* NoTemp = NoTopo;
         cout << "Pilha: [";
         while(NoTemp != NULL){
-            cout << NoTemp -> valor << " ";
+            cout << NoTemp -> valor << " "; //usa notemp para nao mecher no ponteiro original. pq o noTopo permite que eu acesse todos os outro, se ele passar para o proximo perco o acesso de tudo.
             NoTemp = NoTemp ->proximo;
         }
         cout << "]\n";
