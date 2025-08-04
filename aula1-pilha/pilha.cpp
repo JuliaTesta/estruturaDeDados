@@ -56,3 +56,17 @@ using namespace std;
     {
         return tamanho; 
     }
+
+    pilha pilha::clonar() {
+        pilha copia;
+
+        for(int i=0; i<tamanho; i++){
+            copia.estrutura[i] = estrutura[i]; //Aqui, ele vai copiar cada valor do vetor estrutura da pilha original para o vetor estrutura da nova pilha copia
+        }
+        copia.tamanho = tamanho; 
+        return copia;
+    }
+
+
+    
+    

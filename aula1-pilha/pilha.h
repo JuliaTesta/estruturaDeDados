@@ -18,4 +18,5 @@ class pilha{
     TipoItem remover(); //nao tem entrada e tem saida
     void imprimir();
     int qualTamanho();
+    pilha clonar();
 };
