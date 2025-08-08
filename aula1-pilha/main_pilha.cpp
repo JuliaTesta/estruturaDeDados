@@ -35,39 +35,40 @@ int main(){
 
         } else if(opcao == 4){ //EX1- É PALÍNDROMO?
             if(pilha1.estaVazia()){
-                cout << "A pilha está vazia. Insira alguns elementos.\n";
+                cout << "A pilha esta vazia. Insira alguns elementos.\n";
             } else {
                 pilha original = pilha1.clonar();
                 pilha auxiliar = pilha1.clonar();
                 TipoItem item;
-                int qnt = pilha1.qualTamanho();
+                int quant = pilha1.qualTamanho();
 
-                //Pilha invertida
+                //Pilha Invertida
                 pilha invertida;
                 while(!auxiliar.estaVazia()){
                     invertida.inserir(auxiliar.remover());
                 }
+
                 bool ehPalindromo = true;
                 while(!original.estaVazia()){
-                    if(original.remover() != invertida.remover()){
+                    if(invertida.remover() != original.remover()){
                         ehPalindromo = false;
                         break;
-                    }  
+                    }
                 }
 
                 if(ehPalindromo){
-                    cout << "Eh palindromo.\n";
+                    cout << "A pilha eh um palindromo.\n";
                 } else {
-                    cout << "Nao eh palindromo.\n";
+                    cout << "A pilha nao eh um palindromo.\n";
                 }
             }
-
         } else if(opcao == 5){ //EX2- Pilha1 deve ser invertida
-            pilha aux1, aux2;
-            if(pilha1.estaVazia()){
-                cout << "A pilha esta vazia. Insira alguns elementos.\n";
-            }
+           
+            pilha aux1,aux2;
 
+            if(pilha1.estaVazia()){
+                cout << "A pilha esta vazia. Nao eh possivel remover.\n";
+            }
             while(!pilha1.estaVazia()){
                 aux1.inserir(pilha1.remover());
             }
@@ -77,27 +78,27 @@ int main(){
             while(!aux2.estaVazia()){
                 pilha1.inserir(aux2.remover());
             }
-            cout << "Pilha invertida com sucesso.\n";
+
+            cout << "Pilha Invertida\n";
 
         } else if(opcao == 6){ //EX3- Remover todas as ocorrências de um elemento da pilha
             if(pilha1.estaVazia()){
-                cout << "A pilha esta vazia. Nao eh possivel remover.\n";
+                cout << "A pilha esta vazia. Nao eh possivel remover nada.\n";
             } else {
-                cout << "Digite o elemento a ser removido:\n";
-                cin >> item;
+               cout << "Digite o elemento a ser removido.\n";
+               cin >> item;
 
-                pilha aux;
-                while (!pilha1.estaVazia()){
-                    TipoItem atual = pilha1.remover();
-                    if(atual != item){
-                        aux.inserir(atual);
-                    }
+               pilha aux;
+               while(!pilha1.estaVazia()){
+                TipoItem atual = pilha1.remover();
+                if(atual != item){
+                    aux.inserir(atual);
                 }
-
-                while(!aux.estaVazia()){
-                    pilha1.inserir(aux.remover());
-                }
-                cout << "Todas as ocorrencias do elemento foram removidas.\n";
+               }
+               while(!aux.estaVazia()){
+                pilha1.inserir(aux.remover());
+               }
+               cout << "Todas as ocorrencias do elemento foram removidas.\n";
             }
 
         } else if (opcao == 7){ //EX4- Parenteses Balanceados

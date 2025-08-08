@@ -57,15 +57,11 @@ using namespace std;
         return tamanho; 
     }
 
-   pilha pilha::clonar(){
+    pilha pilha::clonar(){
         pilha copia;
         for(int i=0; i<tamanho; i++){
             copia.estrutura[i] = estrutura[i];
         }
         copia.tamanho = tamanho;
         return copia;
-   }
-
-
-    
-    
+    }
