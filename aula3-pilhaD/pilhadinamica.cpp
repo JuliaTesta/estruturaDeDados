@@ -64,7 +64,7 @@
         }
     }
 
-    void pilhadinamica ::imprimir()
+    void pilhadinamica :: imprimir()
     {
         No* NoTemp = NoTopo;
         cout << "Pilha: [";
@@ -73,4 +73,21 @@
             NoTemp = NoTemp ->proximo;
         }
         cout << "]\n";
+    }
+
+    pilhadinamica pilhadinamica :: clonar(){ //nao tem tamanho fixo
+        pilhadinamica copia;
+        pilhadinamica aux;
+
+        No* atual = NoTopo; //percorre pilha com um ponteiro
+
+        while(atual != NULL){
+            aux.inserir(atual->valor); //invertendo
+            atual = atual -> proximo;
+        }
+
+        while(!aux.estavazio()){
+            copia.inserir(aux.retirar()); //nao esta mais invertido
+        }
+        return copia;
     }

@@ -20,5 +20,5 @@ class pilhadinamica{
     void inserir(TipoItem item);
     TipoItem retirar();
     void imprimir();
-
+    pilhadinamica clonar();
 };
