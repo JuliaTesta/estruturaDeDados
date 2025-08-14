@@ -6,14 +6,14 @@
 using namespace std;
 
 int Hash::FuncaoHash(Aluno aluno){
-    return (aluno.obterRa() % max_posicoes); //para saber a posição que está
+    return (aluno.obterRa() % max_posicoes); //para saber a posição que está (resto)
 }
 
 Hash::Hash(int tam_vetor, int max){
     quant_itens = 0;
     max_itens =  max;      //deixar para o usuario escolher
     max_posicoes =  tam_vetor;      //deixar para o usuario escolher
-    estrutura = new Aluno[tam_vetor]; //a estrutura tera elementos do tam_vetor
+    estrutura = new Aluno[tam_vetor]; //a estrutura tera elementos do tam_vetor (ex: tres posicoes do tipo aluno)
 }
 
 Hash::~Hash(){
@@ -28,13 +28,20 @@ int  Hash::obterTamanhoAtual(){
     return (quant_itens);
 }
 
-//SEM COLISÕES
+//COM COLISÕES
 void  Hash::inserir(Aluno aluno){
-    int local = FuncaoHash(aluno); //dar como entrada aluno na função hash, e transformá-lo em inteiro
+    int local = FuncaoHash(aluno); //dar como entrada aluno na função hash, e transformá-lo em inteiro        //ra=-1(vazio) ra=-2(disponivel)
+    while (estrutura[local].obterRa() > 0) //ja tem algum aluno inserido ali
+    {
+        local = (local+1) % max_posicoes; //aumenta um local(vai pro proximo). A divisao é para que, se caso ultrapasse a quantidade, o resto faz voltar para o inicio
+    }
+    
+    //aqui sim pode inserir:
     estrutura[local] = aluno;
     quant_itens++;
 }
 
+//continuarrrrrrrrrrr
 void  Hash::deletar(Aluno aluno){
     int local = FuncaoHash(aluno);
     if(estrutura[local].obterRa() != -1){  //se o ra daquele local não é -1 já tem um elemento inserido ali, então podemos excluí-lo

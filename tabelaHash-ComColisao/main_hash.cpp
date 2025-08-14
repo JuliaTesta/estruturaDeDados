@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
     cout << "Programa gerador de Hash\n";
-
+    
     int tam_vetor, max;
 
     cout << "Digite o tamanho da Hash: \n";
