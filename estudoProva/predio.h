@@ -2,8 +2,10 @@
 #define ANDARES 20
 #define UNIDADES 8
 
+//Biblioteca
 #include <string.h>
 
+//Estrutura
 typedef struct 
 {
     char nome[50];

@@ -2,9 +2,9 @@
 
 int busca(int v[], int tamanho, int valor){
     int inicio = 0;
-    int final = tamanho -1;
+    int final = tamanho - 1;
 
-    while(inicio <= final){
+    while(final >= inicio){
         int meio = (inicio + final)/2;
 
         if(v[meio] == valor){
@@ -18,15 +18,15 @@ int busca(int v[], int tamanho, int valor){
     return -1;
 }
 
+
 int main(){
-    int numeros[] = {3,5,8,10,20,25,37};
+    int numeros[] ={3,5,8,10,20,25,27};
     int posicao = busca(numeros, 7, 25);
 
-    if(posicao != -1){
+    if(posicao!=-1){
         printf("25 esta na posicao %d", posicao);
     } else {
         printf("25 nao encontrado.\n");
     }
-
     return 0;
 }

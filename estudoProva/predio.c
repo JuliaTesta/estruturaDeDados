@@ -48,7 +48,7 @@ for(int i=19; i>=0; i--){
 }
 
 void imprimirTotalPredio(Apartamento predio[][UNIDADES]){
-int soma =0;
+int soma = 0;
 
 for(int i=0; i<ANDARES; i++){
     for(int j=0; j<UNIDADES; j++){

@@ -17,7 +17,7 @@ void lerRetangulo(retangulo r[], int tamanho){
     }
 }
 
-float calcularArea(retangulo r[], int tamanho){
+float calcularArea(retangulo r[], int tamanho){ //passa tamanho, pq só tem acesso a r[0]
     float maiorArea = 0;
 
     for(int i=0; i<tamanho; i++){

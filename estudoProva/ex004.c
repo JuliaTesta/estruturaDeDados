@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 
-int imprimirDecrescente(int n){
-    if(n == 1){
+void imprimirDecrescente(int n){
+    if(n==1){
         printf("1 ");
         return;
     } else {
@@ -17,8 +17,6 @@ int main(){
     int numero;
     printf("Digite um numero: ");
     scanf("%d", &numero);
-
-     imprimirDecrescente(numero);
-
+    imprimirDecrescente(numero);
     return 0;
 }

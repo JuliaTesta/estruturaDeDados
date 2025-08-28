@@ -10,8 +10,8 @@
 //Escreva uma função não-recursiva que resolve o mesmo problema.
 
 int func(int a){
-    int resultado = 1;
-    for(int i=1; i<=a;i++){
+    int resultado =1;
+    for(int i=1; i<=a; i++){
         resultado *= i;
     }
     return resultado;
@@ -21,7 +21,6 @@ int main(){
     int numero;
     printf("Digite um numero: ");
     scanf("%d", &numero);
-    printf("%d",func(numero));
-
+    printf("%d", func(numero));
     return 0;
 }
