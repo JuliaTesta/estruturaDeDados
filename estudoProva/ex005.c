@@ -2,12 +2,11 @@
 #include <stdio.h>
 
 void imprimirCrescente(int n){
-    if(n == 1){
-        printf("1 ");
-        return;
+    if(n==1){
+        printf("1");
     } else {
         imprimirCrescente(n-1);
-        printf("%d ", n);
+        printf("%d", n);
         return;
     }
 }

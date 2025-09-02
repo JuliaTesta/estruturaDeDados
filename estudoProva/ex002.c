@@ -3,7 +3,7 @@
 //Somatório
 
 int somatorio(int n){
-    if(n == 1){
+    if(n==1){
         return 1;
     } else {
         return n + somatorio(n-1);
@@ -12,8 +12,10 @@ int somatorio(int n){
 
 int main(){
     int numero;
+    
     printf("Digite um numero: ");
     scanf("%d", &numero);
-    printf("Seu somatorio eh: %d", somatorio(numero));
+
+    printf("O somatorio eh: %d", somatorio(numero));
     return 0;
 }
