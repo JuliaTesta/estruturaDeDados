@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-int buscaCarac(char caracteres[], int procurado, int t){
-    for(int i=t; i>=0; i--){
-        if(caracteres[i]==procurado){
+int busca(char caracteres[], int p){
+    for(int i=strlen(caracteres); i>=0; i--){
+        if(caracteres[i] == p){
             return i;
         }
     }
     return -1;
 }
-
 int main(){
     char caracteres[50];
     char procurado;
@@ -19,12 +18,12 @@ int main(){
     printf("Digite o caracter a ser procurado: ");
     scanf(" %c", &procurado);
 
-    int tamanho = strlen(caracteres);
-    int posicao = buscaCarac(caracteres, procurado, tamanho);
+    int posicao = busca(caracteres, procurado);
+
     if(posicao != -1){
-        printf("O caracter %c estah na posicao %d", procurado, posicao);
+        printf("O caracter %c estah na posicao %d.\n", procurado, posicao);
     } else {
-        printf("O caracter %c nao estah na sequencia informada.\n", procurado);
+        printf("O caracter nao foi encontrado.\n");
     }
     return 0;
 }

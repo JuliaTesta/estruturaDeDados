@@ -3,7 +3,7 @@
 
 int criptografar(char palavra1[], char palavra2[], char palavra3[], char textoCriptografado[]){
     int tamanho = strlen(palavra1);
-    int a = 0;
+    int a=0;
 
     for(int i=0; i<tamanho; i++){
         textoCriptografado[a++] = palavra1[i];
@@ -14,8 +14,9 @@ int criptografar(char palavra1[], char palavra2[], char palavra3[], char textoCr
     return tamanho;
 }
 
-void descriptografar(char textoCriptografado[], int tamanho, char palavra1[], char palavra2[],char palavra3[]){
-    int a = 0;
+void descriptografar(char textoCriptografado[], int tamanho, char palavra1[], char palavra2[],
+char palavra3[]){
+    int a=0;
 
     for(int i=0; i<tamanho; i++){
         palavra1[i] = textoCriptografado[a++];
@@ -26,6 +27,7 @@ void descriptografar(char textoCriptografado[], int tamanho, char palavra1[], ch
     palavra2[tamanho] = '\0';
     palavra3[tamanho] = '\0';
 }
+
 
 int main(){
     char palavra1[50], palavra2[50], palavra3[50];
@@ -39,21 +41,18 @@ int main(){
     printf("Digite a palavra 3: ");
     scanf("%s", palavra3);
 
-    int linhas = criptografar(palavra1, palavra2, palavra3, textoCriptografado);
-
     if(strlen(palavra1) != strlen(palavra2) || strlen(palavra1) != strlen(palavra3)){
         printf("As palavras devem ter o mesmo tamanho.\n");
-        return 1;
     }
 
+    int linhas = criptografar(palavra1, palavra2, palavra3, textoCriptografado);
     printf("Texto criptografado: %s\n", textoCriptografado);
 
     descriptografar(textoCriptografado, linhas, desc1, desc2, desc3);
-
-    printf("Textos descriptografados:\n");
-    printf("%s\n", desc1);
-    printf("%s\n", desc2);
-    printf("%s\n", desc3);
+    printf("Descriptografado: \n");
+    printf("Palavra 1: %s\n", desc1);
+    printf("Palavra 2: %s\n", desc2);
+    printf("Palavra 3: %s\n", desc3);
 
     return 0;
 }

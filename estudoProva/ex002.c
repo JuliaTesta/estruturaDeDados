@@ -12,10 +12,10 @@ int somatorio(int n){
 
 int main(){
     int numero;
-    
+
     printf("Digite um numero: ");
     scanf("%d", &numero);
 
-    printf("O somatorio eh: %d", somatorio(numero));
+    printf("Somatorio: %d", somatorio(numero));
     return 0;
 }

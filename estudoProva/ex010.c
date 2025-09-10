@@ -10,7 +10,6 @@
     char nomeAdv[20];
 } processo;
 
-
 processo leitura(){
     processo p;
 
@@ -20,14 +19,14 @@ processo leitura(){
     scanf("%s", p.data);
     printf("Digite o nome do solicitante: ");
     scanf("%s", p.nomeSolicitante);
-    printf("Digite o nome do advogado: ");
+    printf("digite o nome do advogado: ");
     scanf("%s", p.nomeAdv);
 
     return p;
 }
 
 void imprimir(processo p){
-        printf("O processo %d, aberto em %s, tem como solicitante %s representado por %s.\n", p.numero, p.data, p.nomeSolicitante, p.nomeAdv);
+    printf("\nO processo de numero %d, realizado em %s, tem como solicitante %s, representado por %s.\n", p.numero, p.data,p.nomeSolicitante,p.nomeAdv);
 }
 
 int main(){
@@ -35,6 +34,5 @@ int main(){
 
     p = leitura();
     imprimir(p);
-
     return 0;
 }

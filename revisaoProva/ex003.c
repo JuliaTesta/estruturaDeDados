@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <string.h>
 #include <limits.h>
+#include <stdbool.h>
+
 
 int main(){
-    int i=0, numero; 
+    int i=0, numero;
     bool decrescente = true;
     int anterior = INT_MAX;
 
@@ -13,7 +15,7 @@ int main(){
 
         if(i==0){
             anterior = numero;
-        } else {
+        } else{
             if(numero<anterior){
                 anterior = numero;
             } else {
@@ -23,15 +25,11 @@ int main(){
         }
         i+=1;
     }
-    if(decrescente==true){
+    if(decrescente == true){
         printf("Numeros estao em ordem decrescente.\n");
     } else {
-        printf("Numeros nao estao em ordem decrescente.\n");
+        printf("Numeros NAO estao em ordem decrescente.\n");
     }
+
+    return 0;
 }
-
-
-
-
-
-

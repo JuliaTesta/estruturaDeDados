@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-int contar(char texto[], int p){
-    if(texto[p] == '\0'){
+int contarCaracteres(char palavra[], int p){
+    if(palavra[p] == '\0'){
         return 0;
-    } else if(texto[p] == ' '){
-        return contar(texto, p+1);
+    } else if(palavra[p] == ' '){
+        return contarCaracteres(palavra, p+1);
     } else {
-        return 1+ contar(texto, p+1);
+        return 1+contarCaracteres(palavra, p+1);
     }
 }
 
@@ -17,6 +17,7 @@ int main(){
     printf("Digite uma palavra: ");
     scanf("%[^\n]s", palavra);
 
-    int resultado = contar(palavra, 0);
+    int resultado = contarCaracteres(palavra, 0);
     printf("A palavra tem %d caracteres.\n", resultado);
+    return 0;
 }
