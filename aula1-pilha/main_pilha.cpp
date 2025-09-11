@@ -34,15 +34,15 @@ int main(){
             pilha1.imprimir();
 
         } else if(opcao == 4){ //EX1- É PALÍNDROMO?
-            if(pilha1.estaVazia()){
-                cout << "A pilha esta vazia. Insira alguns elementos.\n";
-            } else {
+           if(pilha1.estaVazia()){
+            cout << "A pilha estah vazia. Insira alguns elementos.\n";
+           } else {
                 pilha original = pilha1.clonar();
                 pilha auxiliar = pilha1.clonar();
                 TipoItem item;
                 int quant = pilha1.qualTamanho();
 
-                //Pilha Invertida
+                //Pilha invertida
                 pilha invertida;
                 while(!auxiliar.estaVazia()){
                     invertida.inserir(auxiliar.remover());
@@ -50,7 +50,7 @@ int main(){
 
                 bool ehPalindromo = true;
                 while(!original.estaVazia()){
-                    if(invertida.remover() != original.remover()){
+                    if(original.remover() != invertida.remover()){
                         ehPalindromo = false;
                         break;
                     }
@@ -61,14 +61,14 @@ int main(){
                 } else {
                     cout << "A pilha nao eh um palindromo.\n";
                 }
-            }
-        } else if(opcao == 5){ //EX2- Pilha1 deve ser invertida
-           
-            pilha aux1,aux2;
+           }
 
-            if(pilha1.estaVazia()){
-                cout << "A pilha esta vazia. Nao eh possivel remover.\n";
-            }
+        } else if(opcao == 5){ //EX2- Pilha1 deve ser invertida
+           pilha aux1, aux2;
+
+           if(pilha1.estaVazia()){
+            cout << "A pilha estah vazia. Nao eh possivel esvazia-la.\n";
+           } 
             while(!pilha1.estaVazia()){
                 aux1.inserir(pilha1.remover());
             }
@@ -78,28 +78,28 @@ int main(){
             while(!aux2.estaVazia()){
                 pilha1.inserir(aux2.remover());
             }
-
-            cout << "Pilha Invertida\n";
-
+           
+           cout << "Pilha invertida.\n";
+           
         } else if(opcao == 6){ //EX3- Remover todas as ocorrências de um elemento da pilha
-            if(pilha1.estaVazia()){
-                cout << "A pilha esta vazia. Nao eh possivel remover nada.\n";
-            } else {
-               cout << "Digite o elemento a ser removido.\n";
-               cin >> item;
+           if(pilha1.estaVazia()){
+            cout << "A pilha estah vazia. Nao eh possivel remover.\n";
+           } else {
+            cout << "Digite o elemento a ser removido.\n";
+            cin >> item;
 
-               pilha aux;
-               while(!pilha1.estaVazia()){
+            pilha aux;
+            while(!pilha1.estaVazia()){
                 TipoItem atual = pilha1.remover();
                 if(atual != item){
                     aux.inserir(atual);
                 }
-               }
-               while(!aux.estaVazia()){
-                pilha1.inserir(aux.remover());
-               }
-               cout << "Todas as ocorrencias do elemento foram removidas.\n";
             }
+            while(!aux.estaVazia()){
+                pilha1.inserir(aux.remover());
+            }
+            cout << "Todas as ocorrencias foram removidas.\n";
+           }
 
         } else if (opcao == 7){ //EX4- Parenteses Balanceados
             cout << "Digite uma expressao com parenteses (exemplo: ((()))): \n";
@@ -111,8 +111,6 @@ int main(){
             } else {
                 cout << "Expressao NAO balanceada.\n";
             }
-            
-            
         }
     } while(opcao != 0);
 
@@ -121,19 +119,19 @@ int main(){
 
 //EX4-
 bool estaBalanceado(string expr){
-    int tamanho = (int)expr.size();
-    pilha p;
+   int tamanho = (int)expr.size();
+   pilha p;
 
-    for(int i=0; i<tamanho; i++){
+   for(int i=0; i<tamanho; i++){
         char c = expr[i];
         if(c == '('){
             p.inserir(1);
-        } else if( c== ')'){
+        } else if(c == ')'){
             if(p.estaVazia()){
-                return false; //pq se achou ")" e a pilha esta vazia, é pq nao teve nenhum ')'
+                return false; //pq se achou ')' e a pilha estah vazia, é pq nao teve nenhum ')'
             }
-            p.remover(); //remove um '1'. fica um empilha e desempilha. 
-        } 
-    }
-    return p.estaVazia(); //quando ela termina vazia, significa que esta balanceada
+            p.remover();//remove um '1'. fica um empilha e desempilha
+        }
+   }
+   return p.estaVazia();
 }
