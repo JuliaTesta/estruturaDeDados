@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include "pilha.h"
+
+void inicializar(){
+	p.topo = -1;
+}
+
+int verificarVazia(){
+	if(p.topo == -1)
+		return 1;
+	else return 0;
+}
+
+int verificarCheia(){
+	if(p.topo == TAM_MAX - 1)
+		return 1;
+	else return 0;
+}
+
+void push(char c){
+	//verificar se a pilha nao estah cheia
+	if(!verificarCheia()) {
+		//atualiza o topo da pilha
+		p.topo++;
+		//insere o elemento no vetor na posicao topo
+		p.vetor[p.topo] = c;
+	} else {
+		//se estiver cheia, informa o usuario
+		printf("\nNao eh possivel inserir, pilha cheia.");
+	}
+}
+
+char pop(){
+	//verificar se a pilha nao estah vazia
+	if(!verificarVazia()) {
+		//define variavel uma variavel auxiliar
+		char aux;
+		//variavel auxiliar ira guardar o elemento do topo da pilha
+		aux = p.vetor[p.topo];
+		//atualiza o topo da pilha
+		p.topo--;
+		//retorna o numero removido
+		return aux;
+	} else {
+		//se estiver vazia, informa o usuario
+		printf("\nA pilha estah vazia.");
+		return 0;
+	}
+}
+
+void imprimir(){
+	//verificar se a pilha nao esta vazia
+	if(!verificarVazia()) {
+		//define uma variavel auxiliar
+		int i;
+		printf("\nOs elementos na pilha sao:");
+		//percorrer o vetor do topo ate a base
+		for(i = p.topo; i >= 0; i--)
+			//imprimir o elemento na posicao i
+			printf("\n%c", p.vetor[i]);
+	} else {
+		//se estiver vazia, informa o usuario
+		printf("\nA pilha esta vazia.");
+	}
+}
+
+
