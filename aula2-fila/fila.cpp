@@ -33,8 +33,8 @@ void Fila::inserir(TipoItem item)
         cout << "A fila esta cheia!\n";
     } else{
         estrutura[ultimo % max_itens] = item; //recebe item
-        ultimo++;
-    }
+        ultimo++; //elementos sao inseridos na ultima posicao
+    } //faz a divisao pois o ultimo ja pode ter passado do tamanho da fila
 }
 
 TipoItem Fila::remover() //só tem saída
@@ -43,18 +43,18 @@ TipoItem Fila::remover() //só tem saída
         cout << "A fila esta vazia!\n";
         return 0;
     } else{
-        primeiro++;
+        primeiro++; //indica o indice do proximo elemento a ser removido
         return estrutura[(primeiro-1) % max_itens];
     }
-}   
+}   //faz a divisao pois o primeiro já pode ter passado do tamanho da fila
 
 void Fila::imprimir()
 {
     cout << "Fila: " " [ ";
     for(int i=primeiro; i<ultimo; i++){
         cout << estrutura[i % max_itens] << " ";
-    }
-
+    } //ultimo aponta para onde o item sera inserido, por isso nao pode ser igual a ele.
+    //i ja pode ter passado do tamanho da fila, entao por isso faz a divisao
     cout << " ] \n";
 }
 
