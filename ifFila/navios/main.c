@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "pilha.h"
+#include "fila.h"
 
 int main(int argc, char *argv[]) {
+	Navio temp;
 	int opcao;
-	Roupa temp;
 	inicializar();
 
 	do {
@@ -25,25 +25,18 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite o modelo: ");
-				scanf("%50s", temp.modelo);
-				printf("Digite a cor: ");
-				scanf("%16s", temp.cor);
-
-				do{
-					printf("Digite o tamanho: ");
-					scanf(" %c", &temp.tamanho);
-					
-					if(!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g')){
-					printf("Tamanho invalido.\n");
-				}
-				} while (!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g'));
-				push(temp);
+				printf("Digite o nome do navio: ");
+				scanf("%21s", temp.nome);
+				printf("Digite a origem do navio: ");
+				scanf("%51s", temp.origem);
+				printf("Digite o peso da carga do navio: ");
+				scanf("%f", &temp.peso);
+				inserir(temp);
 				break;
 			case 3:
-				temp = pop();
-				printf("Roupa Removida: \n");
-				printf("Modelo: %s, Cor: %s, Tamanho: %c.\n", temp.modelo, temp.cor, temp.tamanho);
+				temp = remover();
+				printf("\nNavio removido: \n");
+				printf("Nome: %s, Origem: %s, Peso: %f\n", temp.nome, temp.origem, temp.peso);
 				break;
 			case 4:
 				imprimir();

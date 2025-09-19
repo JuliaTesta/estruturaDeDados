@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "pilha.h"
+#include "fila.h"
 
 int main(int argc, char *argv[]) {
+	int temp;
 	int opcao;
-	Roupa temp;
 	inicializar();
 
 	do {
@@ -25,25 +25,13 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite o modelo: ");
-				scanf("%50s", temp.modelo);
-				printf("Digite a cor: ");
-				scanf("%16s", temp.cor);
-
-				do{
-					printf("Digite o tamanho: ");
-					scanf(" %c", &temp.tamanho);
-					
-					if(!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g')){
-					printf("Tamanho invalido.\n");
-				}
-				} while (!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g'));
-				push(temp);
+				printf("Digite o numero: ");
+				scanf("%d", &temp);
+				inserir(temp);
 				break;
 			case 3:
-				temp = pop();
-				printf("Roupa Removida: \n");
-				printf("Modelo: %s, Cor: %s, Tamanho: %c.\n", temp.modelo, temp.cor, temp.tamanho);
+				temp = remover();
+				printf("\nNumero removido: %d", temp);
 				break;
 			case 4:
 				imprimir();

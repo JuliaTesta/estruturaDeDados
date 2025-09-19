@@ -55,11 +55,11 @@ void imprimir(){
 	if(!verificarVazia()) {
 		//define uma variavel auxiliar
 		int i;
-		printf("\nAs roupas na pilha sao:");
+		printf("\nOs elementos na pilha sao:");
 		//percorrer o vetor do topo ate a base
 		for(i = p.topo; i >= 0; i--)
 			//imprimir o elemento na posicao i
-			printf("\nModelo: %s, Cor: %s, Tamanho: %c", p.vetor[i].modelo, p.vetor[i].cor, p.vetor[i].tamanho);
+			printf("\nModelo: %s, Cor: %s, Tamanho: %c\n", p.vetor[i].modelo, p.vetor[i].cor, p.vetor[i].tamanho);
 	} else {
 		//se estiver vazia, informa o usuario
 		printf("\nA pilha esta vazia.");

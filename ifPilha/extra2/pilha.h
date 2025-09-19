@@ -4,6 +4,7 @@
 typedef struct roupa
 {
 	char modelo[51], cor[16], tamanho;
+
 } Roupa;
 
 typedef struct pilha {
