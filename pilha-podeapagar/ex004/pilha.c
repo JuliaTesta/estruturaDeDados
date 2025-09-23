@@ -20,28 +20,19 @@ int verificarCheia(){
 void push(int numero){
 	//verificar se a pilha nao estah cheia
 	if(!verificarCheia()) {
-		if(p.topo == -1){
-			p.topo++;
-			p.vetor[p.topo] = numero; //pilha vazia pode inserir qualquer numero
-
-		} else {
-			
-			while(numero <= p.vetor[p.topo]){
-			printf("Numero inserido deve ser maior do que o anterior. Digite novamente.\n");
+		while(!(numero % 2 == 0)){
+			printf("Deve ser par.\n");
 			scanf("%d", &numero);
 		}
 		//atualiza o topo da pilha
 		p.topo++;
 		//insere o elemento no vetor na posicaoo topo
-		p.vetor[p.topo] = numero;	
-		}
-		
+		p.vetor[p.topo] = numero;
 	} else {
 		//se estiver cheia, informa o usuario
 		printf("\nNao eh possivel inserir, pilha cheia.");
 	}
 }
-
 
 int pop(){
 	//verificar se a pilha nao estah vazia
@@ -76,3 +67,4 @@ void imprimir(){
 		printf("\nA pilha esta vazia.");
 	}
 }
+
