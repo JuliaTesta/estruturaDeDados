@@ -12,7 +12,7 @@ int verificarVazia(){
 }
 
 int verificarCheia() {
-	if(f.final == TAM_MAX - 1)
+	if(f.final == TAM_MAX - 1) //se tiver 5 posicoes, vai de 0 a 4
 		return 1;
 	else return 0;
 }
@@ -53,10 +53,9 @@ int remover() {
 		//translada os elementos do inicio ao fim -1
 		for(i = 0; i <= f.final -1; i++) {
 			//a posicao i receber o valor da posicao i+1
-			f.vetor[i] = f.vetor[i+1];
-			//atualizar o final da fila
+			f.vetor[i] = f.vetor[i+1];	
 		}
-			
+		//atualizar o final da fila
 		f.final--;
 		return aux;
 	} else {
@@ -64,15 +63,13 @@ int remover() {
 	}
 }
 
-int primeiroPar(){
-	for(int i=0; i<=f.final;i++){
+int primeiroPar(int numero){
+	for(int i=0; i<=f.final; i++){
 		if(f.vetor[i] % 2 == 0){
-			printf("%d", f.vetor[i]);
+			printf("Primeiro par: %d.\n", f.vetor[i]);
 			return f.vetor[i];
-		} 
+		}
 	}
-
-	//só acontece se o laço acabar sem nenhum return
-	printf("Nao ha nenhum numero par.\n");
+	printf("Nao tem par.\n");
 	return 0;
 }

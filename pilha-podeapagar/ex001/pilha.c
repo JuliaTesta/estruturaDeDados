@@ -17,24 +17,25 @@ int verificarCheia(){
 	else return 0;
 }
 
-void push(char c){
+void push(Roupa r){
 	//verificar se a pilha nao estah cheia
 	if(!verificarCheia()) {
 		//atualiza o topo da pilha
 		p.topo++;
 		//insere o elemento no vetor na posicaoo topo
-		p.vetor[p.topo] = c;
+		p.vetor[p.topo] = r;
 	} else {
 		//se estiver cheia, informa o usuario
 		printf("\nNao eh possivel inserir, pilha cheia.");
 	}
 }
 
-char pop(){
+Roupa pop(){
 	//verificar se a pilha nao estah vazia
+	Roupa vazio = {"", "",'\0'};
 	if(!verificarVazia()) {
 		//define variavel uma variavel auxiliar
-		char aux;
+		Roupa aux;
 		//variavel auxiliar ira guardar o elemento do topo da pilha
 		aux = p.vetor[p.topo];
 		//atualiza o topo da pilha
@@ -44,7 +45,7 @@ char pop(){
 	} else {
 		//se estiver vazia, informa o usuario
 		printf("\nA pilha estah vazia.");
-		return 0;
+		return vazio;
 	}
 }
 
@@ -57,7 +58,7 @@ void imprimir(){
 		//percorrer o vetor do topo ate a base
 		for(i = p.topo; i >= 0; i--)
 			//imprimir o elemento na posicao i
-			printf("\n%c", p.vetor[i]);
+			printf("\nModelo: %s, Cor: %s, Tamanho: %c\n", p.vetor[i].modelo, p.vetor[i].cor, p.vetor[i].tamanho);
 	} else {
 		//se estiver vazia, informa o usuario
 		printf("\nA pilha esta vazia.");

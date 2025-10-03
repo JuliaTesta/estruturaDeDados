@@ -20,10 +20,6 @@ int verificarCheia(){
 void push(int numero){
 	//verificar se a pilha nao estah cheia
 	if(!verificarCheia()) {
-		while(!(numero % 2 == 0)){
-			printf("Deve ser par.\n");
-			scanf("%d", &numero);
-		}
 		//atualiza o topo da pilha
 		p.topo++;
 		//insere o elemento no vetor na posicaoo topo
@@ -68,3 +64,10 @@ void imprimir(){
 	}
 }
 
+int somarNumeros(){
+	int sum =0;
+	for(int i=p.topo; i>=0; i--){
+		sum += p.vetor[i];
+	}
+	return sum;
+}

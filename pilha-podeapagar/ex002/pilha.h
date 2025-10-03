@@ -1,21 +1,17 @@
 #include <stdio.h>
 #define TAM_MAX 10
 
-typedef struct roupa {
-	char modelo[51], cor[16], tamanho;
-}Roupa;
-
 typedef struct pilha {
-	Roupa vetor[TAM_MAX];
+	int vetor[TAM_MAX];
 	int topo;
 } Pilha;
 
 Pilha p;
-Roupa r;
 
-void push(Roupa r);
-Roupa pop();
+void push(int numero);
+int pop();
 void imprimir();
 int verificarCheia();
 int verificarVazia();
 void inicializar();
+int repetido(int numero);

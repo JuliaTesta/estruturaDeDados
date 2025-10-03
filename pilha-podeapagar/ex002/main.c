@@ -2,8 +2,7 @@
 #include "pilha.h"
 
 int main(int argc, char *argv[]) {
-	int opcao;
-	Roupa temp;
+	int temp, opcao;
 	inicializar();
 
 	do {
@@ -25,26 +24,13 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite um modelo: ");
-				scanf("%50s", temp.modelo);
-				printf("Digite uma cor: ");
-				scanf("%16s", temp.cor);
-				do{
-					printf("Digite um tamanho: ");
-					scanf(" %c", &temp.tamanho);
-
-					if(!(temp.tamanho == 'p' || temp.tamanho == 'm' ||temp.tamanho == 'g')){
-						printf("Tamanho invalido. Tente novamente.\n");
-					}
-
-				} while (!(temp.tamanho == 'p' || temp.tamanho == 'm' ||temp.tamanho == 'g'));
-				
+				printf("Digite um numero: ");
+				scanf("%d", &temp);
 				push(temp);
 				break;
 			case 3:
 				temp = pop();
-				printf("Roupa removido: \n");
-				printf("Modelo: %s, Cor: %s, Tamanho: %c\n", temp.modelo, temp.cor, temp.tamanho);
+				printf("Numero removido: %d", temp);
 				break;
 			case 4:
 				imprimir();

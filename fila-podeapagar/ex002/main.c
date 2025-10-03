@@ -13,8 +13,7 @@ int main(int argc, char *argv[]) {
 		printf("\n2. Inserir");
 		printf("\n3. Remover");
 		printf("\n4. Imprimir");
-		printf("\n5. Imprimir Primeiro Par");
-		printf("\n6. Sair");
+		printf("\n5. Sair");
 		printf("\nDigite a opcao desejada: ");
 		
 		//ler a opcao desejada pelo usuario
@@ -38,14 +37,11 @@ int main(int argc, char *argv[]) {
 				imprimir();
 				break;
 			case 5:
-				primeiroPar();
-				break;
-			case 6: 
-				printf("Encerrando...");
+				printf("Encerrando o programa...");
 				break;
 			default:
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");
 		}
 		
-	} while(opcao != 6);
+	} while(opcao != 5);
 }

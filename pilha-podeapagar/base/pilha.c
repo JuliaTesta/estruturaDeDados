@@ -20,15 +20,6 @@ int verificarCheia(){
 void push(int numero){
 	//verificar se a pilha nao estah cheia
 	if(!verificarCheia()) {
-		if(p.vetor[p.topo] == -1){
-			p.topo++;
-			p.vetor[p.topo] = numero; //se a esta vazia, pode inserir qualquer numero
-		} else {
-			while(numero <= p.vetor[p.topo]){
-				printf("Numero inserido deve ser maior do que o anterior. Digite novamente.\n");
-				scanf("%d", &numero);
-			}
-		}
 		//atualiza o topo da pilha
 		p.topo++;
 		//insere o elemento no vetor na posicaoo topo

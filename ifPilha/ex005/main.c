@@ -2,8 +2,7 @@
 #include "pilha.h"
 
 int main(int argc, char *argv[]) {
-	int opcao;
-	Roupa temp;
+	int temp, opcao;
 	inicializar();
 
 	do {
@@ -13,7 +12,8 @@ int main(int argc, char *argv[]) {
 		printf("\n2. Inserir");
 		printf("\n3. Remover");
 		printf("\n4. Imprimir");
-		printf("\n5. Sair");
+		printf("\n5. Somar numeros");
+		printf("\n6. Sair");
 		printf("\nDigite a opcao desejada: ");
 		
 		//ler a opcao desejada pelo usuario
@@ -25,35 +25,27 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite o modelo: ");
-				scanf("%50s", temp.modelo);
-				printf("Digite a cor: ");
-				scanf("%16s", temp.cor);
-
-				do{
-					printf("Digite o tamanho: ");
-					scanf(" %c", &temp.tamanho);
-					
-					if(!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g')){
-					printf("Tamanho invalido.\n");
-				}
-				} while (!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g'));
+				printf("Digite um numero: ");
+				scanf("%d", &temp);
 				push(temp);
 				break;
 			case 3:
 				temp = pop();
-				printf("Roupa Removida: \n");
-				printf("Modelo: %s, Cor: %s, Tamanho: %c.\n", temp.modelo, temp.cor, temp.tamanho);
+				printf("Numero removido: %d", temp);
 				break;
 			case 4:
 				imprimir();
 				break;
 			case 5:
+				printf("Soma dos numeros: %d", somarNumeros());
+				break;
+			case 6: 
 				printf("Encerrando o programa...");
 				break;
 			default:
+
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");
 		}
 		
-	} while(opcao != 5);
+	} while(opcao != 6);
 }

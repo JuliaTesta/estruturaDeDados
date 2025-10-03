@@ -14,3 +14,4 @@ void imprimir();
 int verificarCheia();
 int verificarVazia();
 void inicializar();
+int somarNumeros();

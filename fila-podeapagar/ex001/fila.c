@@ -38,14 +38,14 @@ void imprimir(){
 		//percorrer o vetor de 0 ateh f.final
 		for(i = 0; i <= f.final; i++)
 			//imprimir o elemento na posicao i
-			printf("Nome: %s, Origem: %s, Peso: %.2f\n", f.vetor[i].nome, f.vetor[i].origem, f.vetor[i].peso);
+			printf("Nome: %s, Origem: %s, Peso: %f\n", f.vetor[i].nome, f.vetor[i].origem, f.vetor[i].peso);
 	} else {
 		printf("\nA fila estah vazia.");
 	}
 }
 
 Navio remover() {
-	Navio vazio = {"", "", 0.0};
+	Navio vazio = {"","", 0.0};
 	//verificar se a fila nao estah vazia
 	if(!verificarVazia()) {
 		int i;

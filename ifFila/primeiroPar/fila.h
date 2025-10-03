@@ -8,7 +8,7 @@ int verificarVazia();
 int verificarCheia();
 void imprimir();
 int remover();
-int primeiroPar();
+int primeiroPar(int numero);
 
 typedef struct _fila {
 	int vetor[TAM_MAX];

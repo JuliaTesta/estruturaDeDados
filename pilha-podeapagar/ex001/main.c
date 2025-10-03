@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
 	int opcao;
-	char temp;
+	Roupa temp;
 	inicializar();
 
 	do {
@@ -25,13 +25,27 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite um caracter: ");
-				scanf(" %c", &temp);
+				printf("Digite um modelo: ");
+				scanf("%50s", temp.modelo);
+				printf("Digite uma cor: ");
+				scanf("%15s", temp.cor);
+
+				do{
+					printf("Digite o tamanho: ");
+					scanf(" %c", &temp.tamanho);
+
+					if(!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g')){
+						printf("Tamanho invalido. tente novamente.\n");
+					}
+
+				} while (!(temp.tamanho == 'p' || temp.tamanho == 'm' || temp.tamanho == 'g'));
+				
 				push(temp);
 				break;
 			case 3:
 				temp = pop();
-				printf("Caracter removido: %c", temp);
+				printf("Roupa removido:\n");
+				printf("Modelo: %s, Cor: %s, Tamanho: %c\n", temp.modelo, temp.cor, temp.tamanho);
 				break;
 			case 4:
 				imprimir();

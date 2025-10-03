@@ -25,18 +25,18 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite o nome do navio: ");
-				scanf("%21s", temp.nome);
-				printf("Digite a origem do navio: ");
-				scanf("%51s", temp.origem);
-				printf("Digite o peso da carga do navio: ");
+				printf("Digite o nome: ");
+				scanf("%50s", temp.nome);
+				printf("Digite a origem: ");
+				scanf("%15s", temp.origem);
+				printf("Digite o peso: ");
 				scanf("%f", &temp.peso);
 				inserir(temp);
 				break;
 			case 3:
 				temp = remover();
-				printf("\nNavio removido: \n");
-				printf("Nome: %s, Origem: %s, Peso: %f\n", temp.nome, temp.origem, temp.peso);
+				printf("\nNavio removido:\n");
+				printf("Nome: %s, Origem: %s, Peso: %f.\n", temp.nome, temp.origem,temp.peso);
 				break;
 			case 4:
 				imprimir();

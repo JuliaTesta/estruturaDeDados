@@ -4,15 +4,15 @@
 
 typedef struct navio
 {
-	char nome[21], origem[51];
+	char nome[51], origem[16];
 	float peso;
 }Navio;
-
 
 typedef struct _fila {
 	Navio vetor[TAM_MAX];
 	int final;
 } Fila;
+
 
 Fila f;
 Navio n;
@@ -23,3 +23,4 @@ int verificarVazia();
 int verificarCheia();
 void imprimir();
 Navio remover();
+

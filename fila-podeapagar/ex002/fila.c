@@ -62,15 +62,3 @@ int remover() {
 		printf("A fila estah vazia.");
 	}
 }
-
-int primeiroPar(){
-	for(int i=f.final; i>=0; i--){
-		if(f.vetor[i] % 2 == 0){
-			printf("Ultimo numero par: %d\n", f.vetor[i]);
-			return f.vetor[i];
-		}
-	}
-
-	printf("A fila nao tem numero par.\n");
-	return -1;
-}
