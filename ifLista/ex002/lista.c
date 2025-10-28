@@ -17,7 +17,7 @@ int verificarCheia(){
 	else return 0;
 }
 
-void inserir(int numero, int posicao){
+void inserir(Contato c, int posicao){
 	//verificar se a lista nao estah cheia
 	if(!verificarCheia()) {
 		//verifica se a posicao eh maior ao final
@@ -25,14 +25,14 @@ void inserir(int numero, int posicao){
 			//atualiza final
 			l.final++;
 			//guarda elemento na posicao final
-			l.vetor[l.final] = numero;
+			l.vetor[l.final] = c;
 		} else {
 			int i;
 			//deixar a posicao livre translando os elementos
 			for(i = l.final; i >= posicao; i--)
 				l.vetor[i+1] = l.vetor[i];
 			//guarda elemento na posicao desejada
-		    l.vetor[posicao] = numero;
+		    l.vetor[posicao] = c;
 			//atualiza final
 			l.final++;
 		}
@@ -51,21 +51,21 @@ void imprimir() {
 		//percorrer o vetor do inicio ateh final
 		for(i = 0; i <= l.final; i++)
 			//imprimir o elemento na posicao i
-			printf("%d ", l.vetor[i]);
+			printf("Nome: %s Apelido: %s Data: %s\n ", l.vetor[i].nome, l.vetor[i].apelido, l.vetor[i].ultimaConversa);
 	} else {
 		//se estiver vazia, informa o usuario
 		printf("\nA lista esta vazia");
 	}
 }
 
-int remover(int posicao) {
+Contato remover(int posicao) {
 	//verifica se a lista nao estah vazia
 	if(!verificarVazia()) {
 		//verifica se existe elemento valido na posicao desejada
 		if(posicao <= l.final) {
 			int i;
 			//define uma variavel auxiliar
-			int aux = 0;
+			Contato aux;
 			//variavel auxiliar guarda o elemento da posicao
 			aux = l.vetor[posicao];
 			//transladar os elementos da posicao ate final - 1
@@ -83,14 +83,4 @@ int remover(int posicao) {
 		//se lista vazia, informa o usuario
 		printf("\nA lista estah vazia.");
 	}
-	return 0;
-}
-
-int somaLista(){
-	int sum = 0;
-	for(int i=0; i<=l.final; i++){
-		sum += l.vetor[i];
-	}
-	printf("Soma dos numeros: %d\n", sum);
-	return sum;
 }

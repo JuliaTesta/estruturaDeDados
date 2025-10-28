@@ -3,8 +3,9 @@
 #include "lista.h"
 
 int main(int argc, char *argv[]) {
-	int opcao, temp, posicao;
-	
+	int opcao, posicao;
+	Contato temp;
+
 	do {
 		//exibir o menu
 		printf("\n MENU");
@@ -12,8 +13,7 @@ int main(int argc, char *argv[]) {
 		printf("\n2. Inserir");
 		printf("\n3. Remover");
 		printf("\n4. Exibir");
-		printf("\n5. Somar numeros");
-		printf("\n6. Sair");
+		printf("\n5. Sair");
 		printf("\nDigite a opcao desejada: ");
 		//pedir a opcao ao usuario
 		scanf("%i", &opcao);
@@ -24,8 +24,12 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("\nDigite um numero: ");
-				scanf("%d", &temp);
+				printf("\nDigite o nome: ");
+				scanf(" %100s", temp.nome);
+				printf("Digite o apelido: ");
+				scanf(" %50s", temp.apelido);
+				printf("Digite a data da ultima conversa: ");
+				scanf("%12s", temp.ultimaConversa);
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
 				inserir(temp, posicao);
@@ -34,22 +38,19 @@ int main(int argc, char *argv[]) {
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
 				temp = remover(posicao);
-				printf("\nNumero removido: %d",
-					temp);
+				printf("\nContato removido:");
+				printf("Nome: %s Apelido: %s Data:%s", temp.nome, temp.apelido, temp.ultimaConversa);
 				break;
 			case 4:
 				imprimir();
 				break;
 			case 5:
-				somaLista();
-				break;
-			case 6:
-				printf("Saindo...");
+				printf("\nSaindo do programa...");
 				break;
 			default:
 				printf("\nEscolha uma opcao valida!");
 		}
 		
-	} while (opcao != 6);
+	} while (opcao != 5);
 	return 0;
 }

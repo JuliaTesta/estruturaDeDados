@@ -12,7 +12,8 @@ int main(int argc, char *argv[]) {
 		printf("\n2. Inserir");
 		printf("\n3. Remover");
 		printf("\n4. Exibir");
-		printf("\n5. Remover numeros maiores do que *:");
+		printf("\n5. Soma");
+		printf("\n6. Sair");
 		printf("\nDigite a opcao desejada: ");
 		//pedir a opcao ao usuario
 		scanf("%i", &opcao);
@@ -40,9 +41,8 @@ int main(int argc, char *argv[]) {
 				imprimir();
 				break;
 			case 5:
-				printf("Digite o numero no qual, os elementos maiores do que ele serao removidos.\n");
-				scanf("%d", &temp);
-				removerNumerosMaiores(temp);
+				soma();
+				break;
 			case 6:
 				printf("\nSaindo do programa...");
 				break;

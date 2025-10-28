@@ -8,7 +8,7 @@ typedef struct _lista {
 
 Lista l;
 
-void inserir(char caracter, int posicao);
+void inserir(char c, int posicao);
 void imprimir();
 char remover(int posicao);
 void inicializar();

@@ -1,18 +1,24 @@
 #include <stdio.h>
 #define TAM_MAX 10
 
+typedef struct contato
+{
+	char nome[100], apelido[50], ultimaConversa[12];
+
+}Contato;
+
 
 typedef struct _lista {
-	int vetor[TAM_MAX];
+	Contato vetor[TAM_MAX];
 	int final;
 } Lista;
 
 Lista l;
+Contato c;
 
-void inserir(int numero, int posicao);
+void inserir(Contato c, int posicao);
 void imprimir();
-int remover(int posicao);
+Contato remover(int posicao);
 void inicializar();
 int verificarVazia();
 int verificarCheia();
-int somaLista();

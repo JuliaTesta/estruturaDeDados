@@ -3,9 +3,9 @@
 #include "lista.h"
 
 int main(int argc, char *argv[]) {
-	int opcao, posicao;
-	char temp;
-	
+	int opcao, temp, posicao;
+	Lista l;
+
 	do {
 		//exibir o menu
 		printf("\n MENU");
@@ -21,23 +21,24 @@ int main(int argc, char *argv[]) {
 		//processar a opcao desejada
 		switch(opcao) {
 			case 1:
-				inicializar();
+				inicializar(&l);
 				break;
 			case 2:
-				printf("\nDigite um caracter: ");
-				scanf(" %c", &temp);
+				printf("\nDigite um numero: ");
+				scanf("%d", &temp);
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				inserir(temp, posicao);
+				inserir(temp, posicao, &l);
 				break;
 			case 3:
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				temp = remover(posicao);
-				printf("\nCaracter removido: %c",temp);
+				temp = remover(posicao, &l);
+				printf("\nNumero removido: %d",
+					temp);
 				break;
 			case 4:
-				imprimir();
+				imprimir(l);
 				break;
 			case 5:
 				printf("\nSaindo do programa...");

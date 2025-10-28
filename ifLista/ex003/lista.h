@@ -14,4 +14,4 @@ int remover(int posicao);
 void inicializar();
 int verificarVazia();
 int verificarCheia();
-int removerNumerosMaiores(int n);
+void soma();

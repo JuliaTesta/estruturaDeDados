@@ -17,7 +17,7 @@ int verificarCheia(){
 	else return 0;
 }
 
-void inserir(int numero, int posicao){
+void inserir(float numero, int posicao){
 	//verificar se a lista nao estah cheia
 	if(!verificarCheia()) {
 		//verifica se a posicao eh maior ao final
@@ -51,21 +51,21 @@ void imprimir() {
 		//percorrer o vetor do inicio ateh final
 		for(i = 0; i <= l.final; i++)
 			//imprimir o elemento na posicao i
-			printf("%d ", l.vetor[i]);
+			printf("%.2f ", l.vetor[i]);
 	} else {
 		//se estiver vazia, informa o usuario
 		printf("\nA lista esta vazia");
 	}
 }
 
-int remover(int posicao) {
+float remover(int posicao) {
 	//verifica se a lista nao estah vazia
 	if(!verificarVazia()) {
 		//verifica se existe elemento valido na posicao desejada
 		if(posicao <= l.final) {
 			int i;
 			//define uma variavel auxiliar
-			int aux = 0;
+			float aux = 0.0;
 			//variavel auxiliar guarda o elemento da posicao
 			aux = l.vetor[posicao];
 			//transladar os elementos da posicao ate final - 1
@@ -84,4 +84,19 @@ int remover(int posicao) {
 		printf("\nA lista estah vazia.");
 	}
 	return 0;
+}
+
+void excluirMaiores(int numero){
+	int i = l.final;
+
+	if(!verificarVazia()){
+		while(i>=0){
+			if(l.vetor[i] > numero){
+			remover(i);
+		}
+		i--;
+	}
+	} else {
+		printf("A lista estah vazia.");
+	}
 }
