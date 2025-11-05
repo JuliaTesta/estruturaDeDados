@@ -1,40 +1,40 @@
 #include <stdio.h>
 #include "lista.h"
 
-void inicializar(Lista *l){
-	l->final = -1;	
+void inicializar(){
+	l.final = -1;	
 }
 
-int verificarVazia(Lista l){
+int verificarVazia(){
 	if(l.final == -1)
 		return 1;
 	else return 0;
 }
 
-int verificarCheia(Lista l){
+int verificarCheia(){
 	if(l.final == TAM_MAX - 1)
 		return 1;
 	else return 0;
 }
 
-void inserir(int numero, int posicao, Lista *l){
+void inserir(int numero, int posicao){
 	//verificar se a lista nao estah cheia
-	if(!verificarCheia(*l)) {
+	if(!verificarCheia()) {
 		//verifica se a posicao eh maior ao final
-		if(posicao > l->final) {
+		if(posicao > l.final) {
 			//atualiza final
-			l->final++;
+			l.final++;
 			//guarda elemento na posicao final
-			l->vetor[l->final] = numero;
+			l.vetor[l.final] = numero;
 		} else {
 			int i;
 			//deixar a posicao livre translando os elementos
-			for(i = l->final; i >= posicao; i--)
-				l->vetor[i+1] = l->vetor[i];
+			for(i = l.final; i >= posicao; i--)
+				l.vetor[i+1] = l.vetor[i];
 			//guarda elemento na posicao desejada
-		    l->vetor[posicao] = numero;
+		    l.vetor[posicao] = numero;
 			//atualiza final
-			l->final++;
+			l.final++;
 		}
 	} else {
 		//se ela estiver cheia, avisar usuario
@@ -42,9 +42,9 @@ void inserir(int numero, int posicao, Lista *l){
 	}
 }
 
-void imprimir(Lista l) {
+void imprimir() {
 	//verificar se a lista nao esta vazia
-	if(!verificarVazia(l)) {
+	if(!verificarVazia()) {
 		//define uma variavel auxiliar
 		int i;
 		printf("\nOs numeros na lista sao: ");
@@ -58,21 +58,21 @@ void imprimir(Lista l) {
 	}
 }
 
-int remover(int posicao, Lista *l) {
+int remover(int posicao) {
 	//verifica se a lista nao estah vazia
-	if(!verificarVazia(*l)) {
+	if(!verificarVazia()) {
 		//verifica se existe elemento valido na posicao desejada
-		if(posicao <= l->final) {
+		if(posicao <= l.final) {
 			int i;
 			//define uma variavel auxiliar
 			int aux = 0;
 			//variavel auxiliar guarda o elemento da posicao
-			aux = l->vetor[posicao];
+			aux = l.vetor[posicao];
 			//transladar os elementos da posicao ate final - 1
-			for(i = posicao; i < l->final; i++)
-				l->vetor[i] = l->vetor[i+1];
+			for(i = posicao; i < l.final; i++)
+				l.vetor[i] = l.vetor[i+1];
 			//atualiza o final da lista
-			l->final--;
+			l.final--;
 			//retorna elemento removido
 			return aux;
 		} else {

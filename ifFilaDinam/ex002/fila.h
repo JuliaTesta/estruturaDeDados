@@ -1,20 +1,16 @@
-#define TAM_MAX 5
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM_MAX 10
 
-typedef struct fila {
+typedef struct _fila {
 	int vetor[TAM_MAX];
 	int final;
 } Fila;
 
+void inserir(int numero, Fila *f);
 void inicializar(Fila *f);
 int verificarVazia(Fila f);
 int verificarCheia(Fila f);
-void inserir(int numero, Fila *f);
 void imprimir(Fila f);
 int remover(Fila *f);
-
-//Funcoes para testes automatizados
-void testar1_VaziaFila();
-void testar2_InserirFila(int quant);
-void testar3_RemoverFila();
-void testar4_RemoverFila(int quant);
 

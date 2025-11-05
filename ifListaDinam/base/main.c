@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-#include "lista.h"
+
 
 int main(int argc, char *argv[]) {
 	int opcao, temp, posicao;
-	Lista l;
-
+	
 	do {
 		//exibir o menu
 		printf("\n MENU");
@@ -21,24 +20,24 @@ int main(int argc, char *argv[]) {
 		//processar a opcao desejada
 		switch(opcao) {
 			case 1:
-				inicializar(&l);
+				inicializar();
 				break;
 			case 2:
 				printf("\nDigite um numero: ");
 				scanf("%d", &temp);
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				inserir(temp, posicao, &l);
+				inserir(temp, posicao);
 				break;
 			case 3:
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				temp = remover(posicao, &l);
+				temp = remover(posicao);
 				printf("\nNumero removido: %d",
 					temp);
 				break;
 			case 4:
-				imprimir(l);
+				imprimir();
 				break;
 			case 5:
 				printf("\nSaindo do programa...");

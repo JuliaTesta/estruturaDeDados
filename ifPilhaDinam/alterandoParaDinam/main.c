@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include "pilha.h"
-
 int main(int argc, char *argv[]) {
 	int temp, opcao;
-	pilha p;
-	inicializar(&p);
+	inicializar();
 
 	do {
 		//exibir o menu
@@ -22,19 +18,19 @@ int main(int argc, char *argv[]) {
 		//processar a funcionalidade
 		switch(opcao) {
 			case 1:
-				inicializar(&p);
+				inicializar();
 				break;
 			case 2:
 				printf("Digite um numero: ");
 				scanf("%d", &temp);
-				push(temp, &p);
+				push(temp);
 				break;
 			case 3:
-				temp = pop(&p);
+				temp = pop();
 				printf("Numero removido: %d", temp);
 				break;
 			case 4:
-				imprimir(p);
+				imprimir();
 				break;
 			case 5:
 				printf("Encerrando o programa...");

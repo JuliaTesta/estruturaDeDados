@@ -3,9 +3,9 @@
 #include "lista.h"
 
 int main(int argc, char *argv[]) {
-	int opcao, temp, posicao, qual;
-	Lista l1,l2;
-
+	int opcao, temp, posicao;
+	Lista l;
+	
 	do {
 		//exibir o menu
 		printf("\n MENU");
@@ -18,39 +18,27 @@ int main(int argc, char *argv[]) {
 		//pedir a opcao ao usuario
 		scanf("%i", &opcao);
 		
-		if(opcao >=1 && opcao <= 4){
-			printf("Qual lista(1 ou 2)?");
-			scanf("%d", &qual);
-		}
-
-		Lista *lSelecionada = NULL;
-
-		if(qual == 1){
-			lSelecionada = &l1;
-		} else {
-			lSelecionada = &l2;
-		}
 		//processar a opcao desejada
 		switch(opcao) {
 			case 1:
-				inicializar(lSelecionada);
+				inicializar(&l);
 				break;
 			case 2:
 				printf("\nDigite um numero: ");
 				scanf("%d", &temp);
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				inserir(temp, posicao, lSelecionada);
+				inserir(temp, posicao, &l);
 				break;
 			case 3:
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				temp = remover(posicao, lSelecionada);
+				temp = remover(posicao, &l);
 				printf("\nNumero removido: %d",
 					temp);
 				break;
 			case 4:
-				imprimir(*lSelecionada);
+				imprimir(l);
 				break;
 			case 5:
 				printf("\nSaindo do programa...");

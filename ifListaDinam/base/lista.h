@@ -6,9 +6,11 @@ typedef struct _lista {
 	int final;
 } Lista;
 
-void inserir(int numero, int posicao, Lista *l);
-void imprimir(Lista l);
-int remover(int posicao, Lista *l);
-void inicializar(Lista *l);
-int verificarVazia(Lista l);
-int verificarCheia(Lista l);
+Lista l;
+
+void inserir(int numero, int posicao);
+void imprimir();
+int remover(int posicao);
+void inicializar();
+int verificarVazia();
+int verificarCheia();
