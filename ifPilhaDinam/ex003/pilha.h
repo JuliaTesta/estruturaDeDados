@@ -1,27 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-
-typedef struct disco
-{
+typedef struct disco{
 	char cor[21];
-	int diametro;
+	int diam;
 	float peso;
-
 }Disco;
 
-typedef struct no {
+
+typedef struct no
+{
 	Disco dado;
 	struct no *anterior;
-} No;
+}No;
 
 typedef struct pilha {
 	No *topo;
 } Pilha;
 
-
 Pilha p;
-
 
 void push(Disco d);
 Disco pop();

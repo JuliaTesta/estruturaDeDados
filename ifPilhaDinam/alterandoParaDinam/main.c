@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "pilha.h"
+
 int main(int argc, char *argv[]) {
 	int temp, opcao;
 	inicializar();

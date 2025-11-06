@@ -6,6 +6,7 @@ typedef struct pilha {
 	int topo;
 } Pilha;
 
+
 void push(int numero, Pilha *p);
 int pop(Pilha *p);
 void imprimir(Pilha p);

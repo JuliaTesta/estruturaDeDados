@@ -1,19 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-void push(int numero);
-int pop();
-void imprimir();
-int verificarVazia();
-void inicializar();
-
-typedef struct no {
+typedef struct no
+{
 	int dado;
 	struct no *anterior;
-} No;
+}No;
 
 typedef struct pilha {
 	No *topo;
 } Pilha;
 
 Pilha p;
+
+void push(int numero);
+int pop();
+void imprimir();
+int verificarVazia();
+void inicializar();
