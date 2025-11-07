@@ -2,7 +2,7 @@
 #include "fila.h"
 
 int main(int argc, char *argv[]) {
-	int temp;
+	char temp;
 	int opcao;
 	inicializar();
 
@@ -26,12 +26,12 @@ int main(int argc, char *argv[]) {
 				break;
 			case 2:
 				printf("Digite o numero: ");
-				scanf("%d", &temp);
+				scanf(" %c", &temp);
 				inserir(temp);
 				break;
 			case 3:
 				temp = remover();
-				printf("\nNumero removido: %d", temp);
+				printf("\nNumero removido: %c", temp);
 				break;
 			case 4:
 				imprimir();

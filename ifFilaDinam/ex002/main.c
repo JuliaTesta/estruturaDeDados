@@ -2,7 +2,7 @@
 #include "fila.h"
 
 int main(int argc, char *argv[]) {
-	char temp;
+	Carrinho temp;
 	int opcao;
 	inicializar();
 
@@ -25,13 +25,18 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite o caracter: ");
-				scanf(" %c", &temp);
+				printf("Digite o codigo: ");
+				scanf("%d", &temp.cod);
+				printf("Digite a quantidade: ");
+				scanf("%d", &temp.itens);
+				printf("Digite o valor: ");
+				scanf("%f", &temp.valor);
 				inserir(temp);
 				break;
 			case 3:
 				temp = remover();
-				printf("\nCaracter removido: %c", temp);
+				printf("\nCarrinho removido: ");
+				printf("Codigo: %d Quant: %d valor: %f", temp.cod, temp.itens, temp.valor);
 				break;
 			case 4:
 				imprimir();

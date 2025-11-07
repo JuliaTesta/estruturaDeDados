@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 void inicializar(){
-	f.inicio = NULL;
 	f.final = NULL;
 }
 
@@ -13,8 +12,7 @@ int verificarVazia(){
 	else return 0;
 }
 
-
-void inserir(char c){
+void inserir(Carrinho c){
 	//aloca memoria para um novo noh da fila
 	No *novoNo = (No *)malloc(sizeof(No));
 	//se foi alocado memoria, adiciona o novoNo no fim da fila
@@ -26,7 +24,7 @@ void inserir(char c){
 		//se a fila estiver vazia, o novoNo sera tambem o inicio da fila
 		if(verificarVazia()){
 			f.inicio = novoNo;
-		} else {
+		} else {	
 			//se ja tiver elementos na fila, adiciona o novoNo apos o noh que estah no final da fila
 			f.final->proximo = novoNo;
 		}
@@ -34,8 +32,8 @@ void inserir(char c){
 		f.final = novoNo;
 	} else {
 		//senao informa o usuario que nao ha mais memoria
-		printf("Nao ha memoria disponivel.\n");
-	}
+		printf("Nao ha mais memoria disponivel.\n");
+	}	
 }
 
 void imprimir(){
@@ -48,23 +46,23 @@ void imprimir(){
 		//enquanto nao chegar no fim
 		while(aux != NULL){
 			//imprimir o dado do noh apontado por aux
-			printf("%c ", aux->dado);
+			printf("Codigo: %d Itens: %d Valor: %f -", aux->dado.cod, aux->dado.itens, aux->dado.valor);
 			//vai para o proximo noh
 			aux = aux->proximo;
-		}	
+		}
 	} else {
 		//se estiver vazia, informa o usuario
 		printf("Fila vazia.\n");
 	}
 }
 
-char remover() {
+Carrinho remover() {
 	//verificar se a fila não estah vazia
 	if(!verificarVazia()){
 		//cria variavel que vai apontar para o noh a ser removido
 		No *aux;
 		//cria variavel para guardar o dado do noh a ser removido
-		char dado;
+		Carrinho dado;
 		//aux aponta para o noh do inicio da fila
 		aux = f.inicio;
 		//dado ira guardar o elemento do inicio da fila

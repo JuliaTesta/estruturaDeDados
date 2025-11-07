@@ -2,19 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void inicializar( Fila *f){
-	f->inicio = NULL;
+void inicializar(Fila *f){
 	f->final = NULL;
 }
 
-int verificarVazia( Fila f){
+int verificarVazia(Fila f){
 	if(f.final == NULL)
 		return 1;
 	else return 0;
 }
 
-
-void inserir(int numero,  Fila *f){
+void inserir(int numero, Fila *f){
 	//aloca memoria para um novo noh da fila
 	No *novoNo = (No *)malloc(sizeof(No));
 	//se foi alocado memoria, adiciona o novoNo no fim da fila
@@ -26,7 +24,7 @@ void inserir(int numero,  Fila *f){
 		//se a fila estiver vazia, o novoNo sera tambem o inicio da fila
 		if(verificarVazia(*f)){
 			f->inicio = novoNo;
-		} else {
+		} else {	
 			//se ja tiver elementos na fila, adiciona o novoNo apos o noh que estah no final da fila
 			f->final->proximo = novoNo;
 		}
@@ -34,11 +32,11 @@ void inserir(int numero,  Fila *f){
 		f->final = novoNo;
 	} else {
 		//senao informa o usuario que nao ha mais memoria
-		printf("Nao ha memoria disponivel.\n");
-	}
+		printf("Nao ha mais memoria disponivel.\n");
+	}	
 }
 
-void imprimir( Fila f){
+void imprimir(Fila f){
 	//verificar se a fila nao estah vazia
 	if(!verificarVazia(f)){
 		//Declara uma variavel ponteiro auxiliar para percorrer os nohs da fila
@@ -48,17 +46,17 @@ void imprimir( Fila f){
 		//enquanto nao chegar no fim
 		while(aux != NULL){
 			//imprimir o dado do noh apontado por aux
-			printf("%d ", aux->dado);
+			printf("%d", aux->dado);
 			//vai para o proximo noh
 			aux = aux->proximo;
-		}	
+		}
 	} else {
 		//se estiver vazia, informa o usuario
 		printf("Fila vazia.\n");
 	}
 }
 
-int remover( Fila *f) {
+int remover(Fila *f) {
 	//verificar se a fila não estah vazia
 	if(!verificarVazia(*f)){
 		//cria variavel que vai apontar para o noh a ser removido

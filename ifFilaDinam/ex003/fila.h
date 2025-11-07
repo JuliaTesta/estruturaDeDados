@@ -1,17 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct carrinho{
-	int cod;
-	int itens;
-	float valor;
-}Carrinho;
-
-typedef struct no
-{
-	Carrinho dado;
+typedef struct no {
+	int dado;
 	struct no *proximo;
 }No;
+
 
 typedef struct _fila {
 	No *inicio;
@@ -20,9 +14,8 @@ typedef struct _fila {
 
 Fila f;
 
-void inserir(Carrinho c);
+void inserir(int numero);
 void inicializar();
 int verificarVazia();
 void imprimir();
-Carrinho remover();
-
+int remover();
