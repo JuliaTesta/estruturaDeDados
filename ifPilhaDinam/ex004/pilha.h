@@ -1,12 +1,16 @@
 #include <stdio.h>
 
+typedef struct caixa
+{
+	int cod;
+	int peso;
+}Caixa;
 
 typedef struct no
 {
-	float dado;
+	Caixa dado;
 	struct no *anterior;
 }No;
-
 
 typedef struct pilha {
 	No  *topo;
@@ -14,8 +18,9 @@ typedef struct pilha {
 
 Pilha p;
 
-void push(float numero);
-float pop();
+void push(Caixa c);
+Caixa pop();
 void imprimir();
 int verificarVazia();
 void inicializar();
+int somaPilha();

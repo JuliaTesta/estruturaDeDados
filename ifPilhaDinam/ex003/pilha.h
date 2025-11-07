@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-typedef struct disco{
+typedef struct disco
+{
 	char cor[21];
 	int diam;
 	float peso;
 }Disco;
-
 
 typedef struct no
 {
@@ -14,7 +14,7 @@ typedef struct no
 }No;
 
 typedef struct pilha {
-	No *topo;
+	No  *topo;
 } Pilha;
 
 Pilha p;

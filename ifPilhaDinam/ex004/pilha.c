@@ -12,13 +12,13 @@ int verificarVazia(){
 	else return 0;
 }
 
-void push(int numero){
+void push(Caixa c){
 	//aloca memoria para um novo noh da pilha
 	No *novoNo = (No *)malloc(sizeof(No));
 	//se foi alocado memoria, adiciona o novoNo no topo da pilha
 	if(novoNo != NULL){
 		//guarda o elemento a inserir na pilha no membro dado do novoNo
-		novoNo->dado = numero;
+		novoNo->dado = c;
 		//o proximo elemento do novoNo serah o elemento que estah no topo
 		novoNo->anterior = p.topo;
 		//Atualiza o topo da pilha
@@ -29,13 +29,13 @@ void push(int numero){
 	}
 }
 
-int pop(){
+Caixa pop(){
 	//verificar se a pilha não estah vazia
 	if(!verificarVazia()){
 		//cria variavel que vai apontar para o noh a ser removido
 		No *aux;
 		//cria variavel para guardar o dado do noh a ser removido
-		int dado;
+		Caixa dado;
 		//aux aponta para o noh do topo
 		aux = p.topo;
 		//dado ira guardar o elemento do topo da pilha
@@ -62,7 +62,7 @@ void imprimir(){
 		//enquanto nao chegar no fim
 		while(aux != NULL){
 			//imprimir o dado do noh apontado por aux
-			printf("%d\n", aux->dado);
+			printf("Codigo: %d Peso: %d\n", aux->dado.cod, aux->dado.peso);
 			//vai para o noh anterior
 			aux = aux->anterior;
 		}
@@ -70,4 +70,15 @@ void imprimir(){
 		//se estiver vazia, informa o usuario
 		printf("Pilha vazia.\n");
 	}
+}
+
+int somaPilha(){
+	int soma = 0;
+	No *aux = p.topo;
+
+	while(aux != NULL){
+		soma += aux->dado.peso;
+		aux = aux->anterior;
+	}
+	return soma;
 }

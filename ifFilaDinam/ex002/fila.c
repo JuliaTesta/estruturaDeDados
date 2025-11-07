@@ -1,64 +1,86 @@
 #include "fila.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-void inicializar(Fila *f){
-	f->final = -1;
+void inicializar(){
+	f.inicio = NULL;
+	f.final = NULL;
 }
 
-int verificarVazia(Fila f){
-	if(f.final == -1)
+int verificarVazia(){
+	if(f.final == NULL)
 		return 1;
 	else return 0;
 }
 
-int verificarCheia(Fila f) {
-	if(f.final == TAM_MAX - 1) //se tiver 5 posicoes, vai de 0 a 4
-		return 1;
-	else return 0;
-}
 
-void inserir(int numero, Fila *f){
-	//verificar se a fila nao estah cheia
-	if(!verificarCheia(*f)) {
-		//atualiza o final da fila	
-		f->final++;
-		//insere o numero no vetor no final
-		f->vetor[f->final] = numero;
-	} else {
-		//informa o usuario que a fila estah cheia
-		printf("\nA fila estah cheia.");
-	}
-}
-
-void imprimir(Fila f){
-	//verificar se a fila nao estah vazia
-	if(!verificarVazia(f)) {
-		int i;
-		printf("\nOs elementos na fila sao: ");
-		//percorrer o vetor de 0 ateh f.final
-		for(i = 0; i <= f.final; i++)
-			//imprimir o elemento na posicao i
-			printf(" %d", f.vetor[i]);
-	} else {
-		printf("\nA fila estah vazia.");
-	}
-}
-
-int remover(Fila *f) {
-	//verificar se a fila nao estah vazia
-	if(!verificarVazia(*f)) {
-		int aux, i;
-		//aux ira guardar o elemento do inicio da fila
-		aux = f->vetor[0];
-		//translada os elementos do inicio ao fim -1
-		for(i = 0; i <= f->final -1; i++) {
-			//a posicao i receber o valor da posicao i+1
-			f->vetor[i] = f->vetor[i+1];	
+void inserir(char c){
+	//aloca memoria para um novo noh da fila
+	No *novoNo = (No *)malloc(sizeof(No));
+	//se foi alocado memoria, adiciona o novoNo no fim da fila
+	if(novoNo != NULL){
+		//guarda o numero a inserir na fila na variavel dado do novoNo
+		novoNo->dado = c;
+		//o novoNo sera o ultimo elemento da fila, logo nao tem próximo
+		novoNo->proximo = NULL;
+		//se a fila estiver vazia, o novoNo sera tambem o inicio da fila
+		if(verificarVazia()){
+			f.inicio = novoNo;
+		} else {
+			//se ja tiver elementos na fila, adiciona o novoNo apos o noh que estah no final da fila
+			f.final->proximo = novoNo;
 		}
-		//atualizar o final da fila
-		f->final--;
-		return aux;
+		//atualiza o final da fila para que seja o novoNo
+		f.final = novoNo;
 	} else {
-		printf("A fila estah vazia.");
+		//senao informa o usuario que nao ha mais memoria
+		printf("Nao ha memoria disponivel.\n");
+	}
+}
+
+void imprimir(){
+	//verificar se a fila nao estah vazia
+	if(!verificarVazia()){
+		//Declara uma variavel ponteiro auxiliar para percorrer os nohs da fila
+		No *aux;
+		//comeca a percorre a fila do inicio
+		aux = f.inicio;
+		//enquanto nao chegar no fim
+		while(aux != NULL){
+			//imprimir o dado do noh apontado por aux
+			printf("%c ", aux->dado);
+			//vai para o proximo noh
+			aux = aux->proximo;
+		}	
+	} else {
+		//se estiver vazia, informa o usuario
+		printf("Fila vazia.\n");
+	}
+}
+
+char remover() {
+	//verificar se a fila não estah vazia
+	if(!verificarVazia()){
+		//cria variavel que vai apontar para o noh a ser removido
+		No *aux;
+		//cria variavel para guardar o dado do noh a ser removido
+		char dado;
+		//aux aponta para o noh do inicio da fila
+		aux = f.inicio;
+		//dado ira guardar o elemento do inicio da fila
+		dado = f.inicio->dado;
+		//atualizar o inicio da fila
+		f.inicio = aux->proximo;
+		//se o noh removido for o no final da fila, atualiza o final da fila
+		if(f.inicio == NULL){
+			f.final = NULL;
+		}
+		//libera a memoria ocupada pelo noh removido
+		free(aux);
+		//retorna o valor do noh removido
+		return dado;
+	} else {
+		//se a fila estiver vazia, informa o usuario
+		printf("Fila vazia.\n");
 	}
 }

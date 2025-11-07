@@ -4,8 +4,7 @@
 int main(int argc, char *argv[]) {
 	int temp;
 	int opcao;
-	Fila f;
-	inicializar(&f);
+	inicializar();
 
 	do {
 		//exibir o menu
@@ -23,19 +22,19 @@ int main(int argc, char *argv[]) {
 		//processar a funcionalidade
 		switch(opcao) {
 			case 1:
-				inicializar(&f);
+				inicializar();
 				break;
 			case 2:
 				printf("Digite o numero: ");
 				scanf("%d", &temp);
-				inserir(temp, &f);
+				inserir(temp);
 				break;
 			case 3:
-				temp = remover(&f);
+				temp = remover();
 				printf("\nNumero removido: %d", temp);
 				break;
 			case 4:
-				imprimir(f);
+				imprimir();
 				break;
 			case 5:
 				printf("Encerrando o programa...");

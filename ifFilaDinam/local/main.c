@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include "pilha.h"
+#include "fila.h"
 
 int main(int argc, char *argv[]) {
-	int temp, opcao, qual;
-	Pilha p1, p2;
-	inicializar(&p1);
-	inicializar(&p2);
+	int temp;
+	int opcao;
+	Fila f;
+	inicializar(&f);
 
 	do {
 		//exibir o menu
@@ -19,40 +19,23 @@ int main(int argc, char *argv[]) {
 		
 		//ler a opcao desejada pelo usuario
 		scanf("%d", &opcao);
-
-		Pilha *pSelecionada = NULL;
-		if(opcao >= 1 || opcao <=4){
-			
-			do{
-				printf("Pilha 1 ou 2? ");
-				scanf("%d",&qual);
-				
-				if(qual == 1){
-					pSelecionada = &p1;
-				} else if (qual == 2) {
-					pSelecionada = &p2;
-				} else {
-					printf("Pilha nao existe. Tente novamente: ");
-				}
-			} while (pSelecionada == NULL);
-		}
-			
+		
 		//processar a funcionalidade
 		switch(opcao) {
 			case 1:
-				inicializar(pSelecionada);
+				inicializar(&f);
 				break;
 			case 2:
-				printf("Digite um numero: ");
+				printf("Digite o numero: ");
 				scanf("%d", &temp);
-				push(temp, pSelecionada);
+				inserir(temp, &f);
 				break;
 			case 3:
-				temp = pop(pSelecionada);
-				printf("Numero removido: %d", temp);
+				temp = remover(&f);
+				printf("\nNumero removido: %d", temp);
 				break;
 			case 4:
-				imprimir(*pSelecionada);
+				imprimir(f);
 				break;
 			case 5:
 				printf("Encerrando o programa...");

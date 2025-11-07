@@ -12,11 +12,9 @@ typedef struct _fila {
 	No *final;
 } Fila;
 
-Fila f;
-
-void inserir(int numero);
-void inicializar();
-int verificarVazia();
-void imprimir();
-int remover();
+void inserir(int numero, Fila *f);
+void inicializar( Fila *f);
+int verificarVazia( Fila f);
+void imprimir( Fila f);
+int remover( Fila *f);
 

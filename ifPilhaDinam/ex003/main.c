@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 			case 2:
 				printf("Digite uma cor: ");
 				scanf("%20s", temp.cor);
-				printf("Digite um diametro: ");
+				printf("Digite um diametro\n");
 				scanf("%d", &temp.diam);
 				printf("Digite um peso: ");
 				scanf("%f", &temp.peso);
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 				break;
 			case 3:
 				temp = pop();
-				printf("Disco removido:");
+				printf("Disco Removido: ");
 				printf("Cor: %s Diametro: %d Peso: %f\n", temp.cor, temp.diam, temp.peso);
 				break;
 			case 4:

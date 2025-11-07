@@ -14,13 +14,13 @@ int verificarVazia(){
 }
 
 
-void inserir(int numero){
+void inserir(Carrinho c){
 	//aloca memoria para um novo noh da fila
 	No *novoNo = (No *)malloc(sizeof(No));
 	//se foi alocado memoria, adiciona o novoNo no fim da fila
 	if(novoNo != NULL){
 		//guarda o numero a inserir na fila na variavel dado do novoNo
-		novoNo->dado = numero;
+		novoNo->dado = c;
 		//o novoNo sera o ultimo elemento da fila, logo nao tem próximo
 		novoNo->proximo = NULL;
 		//se a fila estiver vazia, o novoNo sera tambem o inicio da fila
@@ -48,7 +48,7 @@ void imprimir(){
 		//enquanto nao chegar no fim
 		while(aux != NULL){
 			//imprimir o dado do noh apontado por aux
-			printf("%d ", aux->dado);
+			printf("Codigo: %d Itens: %d Valor: %f ", aux->dado.cod, aux->dado.itens, aux->dado.valor);
 			//vai para o proximo noh
 			aux = aux->proximo;
 		}	
@@ -58,13 +58,13 @@ void imprimir(){
 	}
 }
 
-int remover() {
+Carrinho remover() {
 	//verificar se a fila não estah vazia
 	if(!verificarVazia()){
 		//cria variavel que vai apontar para o noh a ser removido
 		No *aux;
 		//cria variavel para guardar o dado do noh a ser removido
-		int dado;
+		Carrinho dado;
 		//aux aponta para o noh do inicio da fila
 		aux = f.inicio;
 		//dado ira guardar o elemento do inicio da fila

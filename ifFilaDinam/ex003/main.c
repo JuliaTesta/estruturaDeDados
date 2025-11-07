@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include "pilha.h"
+#include "fila.h"
 
 int main(int argc, char *argv[]) {
-	int temp, opcao, qual;
-	pilha p1, p2;
-
-	inicializar(&p1);
-	inicializar(&p2);
+	Carrinho temp;
+	int opcao;
+	inicializar();
 
 	do {
 		//exibir o menu
@@ -21,34 +19,27 @@ int main(int argc, char *argv[]) {
 		//ler a opcao desejada pelo usuario
 		scanf("%d", &opcao);
 		
-		if(opcao >= 1 && opcao <= 4){
-			printf("Qual pilha 1 ou 2?");
-			scanf("%d", &qual);
-		}
-
-		pilha *pSelecionada = NULL;
-
-		if(qual == 1){
-			pSelecionada = &p1;
-		} else {
-			pSelecionada = &p2;
-		}
 		//processar a funcionalidade
 		switch(opcao) {
 			case 1:
-				inicializar(pSelecionada);
+				inicializar();
 				break;
 			case 2:
-				printf("Digite um numero: ");
-				scanf("%d", &temp);
-				push(temp, pSelecionada);
+				printf("Digite o codigo: ");
+				scanf("%d", &temp.cod);
+				printf("Quantidade: ");
+				scanf("%d", &temp.itens);
+				printf("Valor: ");
+				scanf("%f", &temp.valor);
+				inserir(temp);
 				break;
 			case 3:
-				temp = pop(pSelecionada);
-				printf("Numero removido: %d", temp);
+				temp = remover();
+				printf("\nCarrinho removido: \n");
+				printf("Cod: %d Itens: %d Valor: %f", temp.cod, temp.itens, temp.valor);
 				break;
 			case 4:
-				imprimir(*pSelecionada);
+				imprimir();
 				break;
 			case 5:
 				printf("Encerrando o programa...");
