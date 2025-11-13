@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
 	int opcao;
-	float temp;
+	char temp;
 	inicializar();
 
 	do {
@@ -26,12 +26,12 @@ int main(int argc, char *argv[]) {
 				break;
 			case 2:
 				printf("Digite um numero: ");
-				scanf("%f", &temp);
+				scanf(" %c", &temp);
 				push(temp);
 				break;
 			case 3:
 				temp = pop();
-				printf("Numero removido: %f", temp);
+				printf("Numero removido: %c", temp);
 				break;
 			case 4:
 				imprimir();

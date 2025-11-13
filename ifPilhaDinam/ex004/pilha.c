@@ -12,73 +12,55 @@ int verificarVazia(){
 	else return 0;
 }
 
-void push(Caixa c){
-	//aloca memoria para um novo noh da pilha
-	No *novoNo = (No *)malloc(sizeof(No));
-	//se foi alocado memoria, adiciona o novoNo no topo da pilha
-	if(novoNo != NULL){
-		//guarda o elemento a inserir na pilha no membro dado do novoNo
-		novoNo->dado = c;
-		//o proximo elemento do novoNo serah o elemento que estah no topo
-		novoNo->anterior = p.topo;
-		//Atualiza o topo da pilha
-		p.topo = novoNo;
-	} else {	
-		//senao informa o usuario que nao ha mais memoria
-		printf("Nao ha mais memoria.\n");
+void push(int numero){
+
+	if(!repetido(numero)){
+		//Só aloca memória se nao for repetido
+	No *noNovo = (No *)malloc(sizeof(No));
+	if(noNovo != NULL){
+			noNovo->dado = numero;
+			noNovo->anterior = p.topo;
+			p.topo = noNovo;
+		}
+		
 	}
 }
 
-Caixa pop(){
-	//verificar se a pilha não estah vazia
+int pop(){
 	if(!verificarVazia()){
-		//cria variavel que vai apontar para o noh a ser removido
 		No *aux;
-		//cria variavel para guardar o dado do noh a ser removido
-		Caixa dado;
-		//aux aponta para o noh do topo
+		int dado;
+
 		aux = p.topo;
-		//dado ira guardar o elemento do topo da pilha
 		dado = p.topo->dado;
-		//atualizar o topo da pilha
 		p.topo = aux->anterior;
-		//libera a memoria ocupada pelo noh removido
 		free(aux);
-		//retorna o valor do noh removido
 		return dado;
-	} else {
-		//se a fila estiver vazia, informa o usuario
-		printf("Fila vazia.\n");
 	}
 }
 
 void imprimir(){
-	//verificar se a pilha nao estah vazia
 	if(!verificarVazia()){
-		//Declara uma variavel ponteiro auxiliar para percorrer os nohs da pilha
 		No *aux;
-		//comeca a percorrer a partir do topo
+
 		aux = p.topo;
-		//enquanto nao chegar no fim
 		while(aux != NULL){
-			//imprimir o dado do noh apontado por aux
-			printf("Codigo: %d Peso: %d\n", aux->dado.cod, aux->dado.peso);
-			//vai para o noh anterior
+			printf("%d\n", aux->dado);
 			aux = aux->anterior;
 		}
-	} else {
-		//se estiver vazia, informa o usuario
-		printf("Pilha vazia.\n");
 	}
 }
 
-int somaPilha(){
-	int soma = 0;
-	No *aux = p.topo;
+int repetido(int numero){
+	No *aux; 
+	aux = p.topo;
 
 	while(aux != NULL){
-		soma += aux->dado.peso;
+		if(aux->dado == numero){
+			printf("Numero ja foi inserido.\n");
+			return 1;
+		}
 		aux = aux->anterior;
 	}
-	return soma;
+	return 0;
 }

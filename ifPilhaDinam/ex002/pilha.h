@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-
-typedef struct no
-{
-	float dado;
+typedef struct no {
+	char dado;
 	struct no *anterior;
 }No;
 
-
 typedef struct pilha {
-	No  *topo;
+	No *topo;
 } Pilha;
 
 Pilha p;
 
-void push(float numero);
-float pop();
+void push(char c);
+char pop();
 void imprimir();
 int verificarVazia();
 void inicializar();

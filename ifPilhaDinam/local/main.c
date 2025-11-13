@@ -19,23 +19,21 @@ int main(int argc, char *argv[]) {
 		
 		//ler a opcao desejada pelo usuario
 		scanf("%d", &opcao);
-		
-		if(opcao >=1 && opcao <=4){
-			printf("1 ou 2? ");
+		if(opcao >= 1 && opcao <=4){
+			printf("1 ou 2?");
 			scanf("%d", &qual);
 		}
 
 		Pilha *pSelecionada = NULL;
 
-			if(qual == 1){
-				pSelecionada = &p1;
-			} else if(qual == 2){
-				pSelecionada = &p2;
-			} else {
-				printf("Pilha nao existe. Tente Novamente: ");
-				continue; //volta para menu
-			}
-	
+		if(qual == 1){
+			pSelecionada = &p1;
+		} else if (qual ==2){
+			pSelecionada = &p2;
+		} else {
+			printf("Pilha nao existe. Tente Novamente: ");
+			continue;
+		}
 		//processar a funcionalidade
 		switch(opcao) {
 			case 1:

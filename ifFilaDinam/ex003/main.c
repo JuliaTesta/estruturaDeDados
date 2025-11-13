@@ -2,10 +2,10 @@
 #include "fila.h"
 
 int main(int argc, char *argv[]) {
-	int temp;
-	int opcao;
+	Carrinho temp;
+	int opcao, soma;
 	inicializar();
-
+	
 	do {
 		//exibir o menu
 		printf("\n    MENU");
@@ -25,8 +25,10 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite o numero: ");
-				scanf("%d", &temp);
+				printf("Digite a quantidade: ");
+				scanf("%d", &temp.quant);
+				printf("Digite o preco: ");
+				scanf("%f", &temp.preco);
 				inserir(temp);
 				break;
 			case 3:
@@ -37,11 +39,15 @@ int main(int argc, char *argv[]) {
 				imprimir();
 				break;
 			case 5:
+				soma = somar();
+				printf("Soma das quantidades: %d", soma);
+				break;
+			case 6:
 				printf("Encerrando o programa...");
 				break;
 			default:
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");
 		}
 		
-	} while(opcao != 5);
+	} while(opcao != 6);
 }

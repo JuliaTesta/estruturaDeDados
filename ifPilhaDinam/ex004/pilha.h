@@ -1,26 +1,19 @@
 #include <stdio.h>
 
-typedef struct caixa
-{
-	int cod;
-	int peso;
-}Caixa;
-
-typedef struct no
-{
-	Caixa dado;
+typedef struct no {
+	int dado;
 	struct no *anterior;
 }No;
 
 typedef struct pilha {
-	No  *topo;
+	No *topo;
 } Pilha;
 
 Pilha p;
 
-void push(Caixa c);
-Caixa pop();
+void push(int numero);
+int pop();
 void imprimir();
 int verificarVazia();
 void inicializar();
-int somaPilha();
+int repetido(int numero);

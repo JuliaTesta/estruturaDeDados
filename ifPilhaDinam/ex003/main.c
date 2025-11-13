@@ -2,7 +2,7 @@
 #include "pilha.h"
 
 int main(int argc, char *argv[]) {
-	int opcao;
+	int opcao, soma;
 	Disco temp;
 	inicializar();
 
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 		printf("\n2. Inserir");
 		printf("\n3. Remover");
 		printf("\n4. Imprimir");
-		printf("\n5. Sair");
+		printf("\n5. Somar");
 		printf("\nDigite a opcao desejada: ");
 		
 		//ler a opcao desejada pelo usuario
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 			case 2:
 				printf("Digite uma cor: ");
 				scanf("%20s", temp.cor);
-				printf("Digite um diametro\n");
+				printf("Digite um diametro: ");
 				scanf("%d", &temp.diam);
 				printf("Digite um peso: ");
 				scanf("%f", &temp.peso);
@@ -35,18 +35,22 @@ int main(int argc, char *argv[]) {
 				break;
 			case 3:
 				temp = pop();
-				printf("Disco Removido: ");
+				printf("Disco removido:");
 				printf("Cor: %s Diametro: %d Peso: %f\n", temp.cor, temp.diam, temp.peso);
 				break;
 			case 4:
 				imprimir();
 				break;
 			case 5:
+				soma = somar();
+				printf("Soma dos diametros: %d\n", soma);
+				break;
+			case 6:
 				printf("Encerrando o programa...");
 				break;
 			default:
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");
 		}
 		
-	} while(opcao != 5);
+	} while(opcao != 6);
 }

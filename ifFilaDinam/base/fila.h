@@ -6,7 +6,6 @@ typedef struct no {
 	struct no *proximo;
 }No;
 
-
 typedef struct _fila {
 	No *inicio;
 	No *final;
@@ -19,3 +18,4 @@ void inicializar();
 int verificarVazia();
 void imprimir();
 int remover();
+
