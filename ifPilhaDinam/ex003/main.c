@@ -27,26 +27,24 @@ int main(int argc, char *argv[]) {
 			case 2:
 				printf("Digite uma cor: ");
 				scanf("%20s", temp.cor);
-				printf("Digite um diametro: ");
-				scanf("%d", &temp.diam);
 				printf("Digite um peso: ");
-				scanf("%f", &temp.peso);
+				scanf("%d", &temp.peso);
 				push(temp);
 				break;
 			case 3:
 				temp = pop();
-				printf("Disco removido:");
-				printf("Cor: %s Diametro: %d Peso: %f\n", temp.cor, temp.diam, temp.peso);
+				printf("Disco removido: ");
+				printf("Cor: %s Peso: %d", temp.cor, temp.peso);
 				break;
 			case 4:
 				imprimir();
 				break;
 			case 5:
-				soma = somar();
-				printf("Soma dos diametros: %d\n", soma);
+				soma = somaPeso();
+				printf("Soma dos pesos: %d", soma);
 				break;
 			case 6:
-				printf("Encerrando o programa...");
+				printf("Saindo...");
 				break;
 			default:
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");

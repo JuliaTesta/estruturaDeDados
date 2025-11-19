@@ -2,10 +2,11 @@
 #include "fila.h"
 
 int main(int argc, char *argv[]) {
-	int temp;
+	int temp, qual;
 	int opcao;
-	Fila f;
-	inicializar(&f);
+	Fila f1, f2;
+	inicializar(&f1);
+	inicializar(&f2);
 
 	do {
 		//exibir o menu
@@ -19,23 +20,38 @@ int main(int argc, char *argv[]) {
 		
 		//ler a opcao desejada pelo usuario
 		scanf("%d", &opcao);
+		if(opcao >= 1 && opcao <= 4){
+			printf("1 ou 2?");
+			scanf("%d", &qual);
+		}
+
+		Fila *fSelecionada = NULL;
+
+		if(qual == 1){
+			fSelecionada = &f1;
+		} else if(qual ==2){
+			fSelecionada = &f2;
+		} else {
+			printf("Fila nao existe. tente novamente.");
+			continue;
+		}
 		
 		//processar a funcionalidade
 		switch(opcao) {
 			case 1:
-				inicializar(&f);
+				inicializar(fSelecionada);
 				break;
 			case 2:
 				printf("Digite o numero: ");
 				scanf("%d", &temp);
-				inserir(temp, &f);
+				inserir(temp, fSelecionada);
 				break;
 			case 3:
-				temp = remover(&f);
+				temp = remover(fSelecionada);
 				printf("\nNumero removido: %d", temp);
 				break;
 			case 4:
-				imprimir(f);
+				imprimir(*fSelecionada);
 				break;
 			case 5:
 				printf("Encerrando o programa...");

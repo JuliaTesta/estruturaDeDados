@@ -1,9 +1,14 @@
 #include <stdio.h>
-#define TAM_MAX 10
+
+typedef struct no
+{
+	int dado;
+	struct no *proximo;
+}No;
 
 typedef struct _lista {
-	int vetor[TAM_MAX];
-	int final;
+	No *inicio;
+	No *final;
 } Lista;
 
 Lista l;
@@ -13,4 +18,3 @@ void imprimir();
 int remover(int posicao);
 void inicializar();
 int verificarVazia();
-int verificarCheia();

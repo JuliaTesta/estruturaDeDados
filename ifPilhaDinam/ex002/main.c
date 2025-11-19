@@ -25,13 +25,13 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite um numero: ");
+				printf("Digite um caracter: ");
 				scanf(" %c", &temp);
 				push(temp);
 				break;
 			case 3:
 				temp = pop();
-				printf("Numero removido: %c", temp);
+				printf("Caracter removido: %c", temp);
 				break;
 			case 4:
 				imprimir();

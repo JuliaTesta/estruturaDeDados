@@ -1,9 +1,11 @@
 #include <stdio.h>
 
-typedef struct no {
+typedef struct no
+{
 	char dado;
 	struct no *anterior;
 }No;
+
 
 typedef struct pilha {
 	No *topo;

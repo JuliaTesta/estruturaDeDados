@@ -3,8 +3,8 @@
 #include "lista.h"
 
 int main(int argc, char *argv[]) {
-	int opcao, temp, posicao;
-	Lista l;
+	int opcao,posicao;
+	Musica temp;
 	
 	do {
 		//exibir o menu
@@ -21,24 +21,28 @@ int main(int argc, char *argv[]) {
 		//processar a opcao desejada
 		switch(opcao) {
 			case 1:
-				inicializar(&l);
+				inicializar();
 				break;
 			case 2:
-				printf("\nDigite um numero: ");
-				scanf("%d", &temp);
+				printf("\nDigite um titulo: ");
+				scanf("%20s", temp.titulo);
+				printf("Digite a banda: ");
+				scanf("%20s", temp.banda);
+				printf("Digite o tempo de execucao: ");
+				scanf("%d", &temp.tempo);
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				inserir(temp, posicao, &l);
+				inserir(temp, posicao);
 				break;
 			case 3:
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				temp = remover(posicao, &l);
-				printf("\nNumero removido: %d",
-					temp);
+				temp = remover(posicao);
+				printf("\nMusica removida:");
+				printf("Titulo: %s Banda: %s Tempo: %d", temp.titulo, temp.banda, temp.tempo);
 				break;
 			case 4:
-				imprimir(l);
+				imprimir();
 				break;
 			case 5:
 				printf("\nSaindo do programa...");

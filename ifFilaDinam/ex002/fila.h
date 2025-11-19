@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct no {
-	int dado;
+typedef struct carrinho
+{
+	int cod, preco;
+}Carrinho;
+
+
+typedef struct no
+{
+	Carrinho dado;
 	struct no *proximo;
 }No;
 
@@ -13,10 +20,10 @@ typedef struct _fila {
 
 Fila f;
 
-void inserir(int numero);
+void inserir(Carrinho c);
 void inicializar();
 int verificarVazia();
 void imprimir();
-int remover();
-int repetido(int numero);
+Carrinho remover();
+int somar();
 

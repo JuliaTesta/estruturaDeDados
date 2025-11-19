@@ -2,7 +2,7 @@
 #include "fila.h"
 
 int main(int argc, char *argv[]) {
-	char temp;
+	int temp;
 	int opcao;
 	inicializar();
 
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 		printf("\n2. Inserir");
 		printf("\n3. Remover");
 		printf("\n4. Imprimir");
-		printf("\n5. Sair");
+		printf("\n5. Crescente?");
 		printf("\nDigite a opcao desejada: ");
 		
 		//ler a opcao desejada pelo usuario
@@ -26,22 +26,22 @@ int main(int argc, char *argv[]) {
 				break;
 			case 2:
 				printf("Digite o numero: ");
-				scanf(" %c", &temp);
+				scanf("%d", &temp);
 				inserir(temp);
 				break;
 			case 3:
 				temp = remover();
-				printf("\nNumero removido: %c", temp);
+				printf("\nNumero removido: %d", temp);
 				break;
 			case 4:
 				imprimir();
 				break;
 			case 5:
-				printf("Encerrando o programa...");
+				crescente();
 				break;
 			default:
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");
 		}
 		
-	} while(opcao != 5);
+	} while(opcao != 6);
 }

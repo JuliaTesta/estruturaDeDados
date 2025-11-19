@@ -1,26 +1,21 @@
 #include <stdio.h>
 
-typedef struct musica{
-	char titulo[51];
-	char banda[51];
-	int tempo;
-}Musica;
-
 typedef struct no
 {
-	Musica dado;
+	int dado;
 	struct no *proximo;
 }No;
 
 typedef struct _lista {
-	No *inicio;
 	No *final;
+	No *inicio;
 } Lista;
 
 Lista l;
 
-void inserir(Musica m, int posicao);
+void inserir(int numero, int posicao);
 void imprimir();
-Musica remover(int posicao);
+int remover(int posicao);
 void inicializar();
 int verificarVazia();
+int verificarCheia();

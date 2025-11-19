@@ -1,10 +1,11 @@
 #include <stdio.h>
-#include "fila.h"
+#include "lista.h"
 
 int main(int argc, char *argv[]) {
-	Carrinho temp;
-	int opcao, soma;
-	inicializar();
+	int temp, posicao;
+	int opcao;
+	Lista l;
+	inicializar(&l);
 
 	do {
 		//exibir o menu
@@ -22,30 +23,30 @@ int main(int argc, char *argv[]) {
 		//processar a funcionalidade
 		switch(opcao) {
 			case 1:
-				inicializar();
+				inicializar(&l);
 				break;
 			case 2:
-				printf("Digite o codigo: ");
-				scanf("%d", &temp.cod);
-				printf("Digite o preco: ");
-				scanf("%d", &temp.preco);
-				inserir(temp);
+				printf("Digite o numero: ");
+				scanf("%d", &temp);
+				printf("Digite a posicao: ");
+				scanf("%d", &posicao);
+				inserir(temp, posicao,&l);
 				break;
 			case 3:
-				temp = remover();
-				printf("\nCarrinho removido: ");
-				printf("Cod: %d Preco: %d", temp.cod, temp.preco);
+				printf("Digite a posicao: ");
+				scanf("%d", &posicao);
+				temp = remover(posicao, &l);
+				printf("\nNumero removido: %d", temp);
 				break;
 			case 4:
-				imprimir();
+				imprimir(l);
 				break;
 			case 5:
-				soma = somar();
-				printf("Soma dos precos: %d", soma);
+				printf("Encerrando...\n");
 				break;
 			default:
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");
 		}
 		
-	} while(opcao != 6);
+	} while(opcao != 5);
 }

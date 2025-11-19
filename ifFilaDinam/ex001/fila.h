@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct no {
-	char dado;
+typedef struct no
+{
+	int dado;
 	struct no *proximo;
 }No;
 
@@ -13,9 +14,9 @@ typedef struct _fila {
 
 Fila f;
 
-void inserir(char c);
+void inserir(int numero);
 void inicializar();
 int verificarVazia();
 void imprimir();
-char remover();
-
+int remover();
+int crescente();

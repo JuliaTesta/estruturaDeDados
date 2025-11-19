@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include "fila.h"
+#include "pilha.h"
 
 int main(int argc, char *argv[]) {
-	Carrinho temp;
-	int opcao, soma;
+	int temp, opcao;
 	inicializar();
 
 	do {
@@ -25,27 +24,23 @@ int main(int argc, char *argv[]) {
 				inicializar();
 				break;
 			case 2:
-				printf("Digite o codigo: ");
-				scanf("%d", &temp.cod);
-				printf("Digite o preco: ");
-				scanf("%d", &temp.preco);
-				inserir(temp);
+				printf("Digite um numero: ");
+				scanf("%d", &temp);
+				push(temp);
 				break;
 			case 3:
-				temp = remover();
-				printf("\nCarrinho removido: ");
-				printf("Cod: %d Preco: %d", temp.cod, temp.preco);
+				temp = pop();
+				printf("Numero removido: %d", temp);
 				break;
 			case 4:
 				imprimir();
 				break;
 			case 5:
-				soma = somar();
-				printf("Soma dos precos: %d", soma);
+				printf("Encerrando o programa...");
 				break;
 			default:
 				printf("\nOpcao invalida. Escolha um numero valido de opcao.");
 		}
 		
-	} while(opcao != 6);
+	} while(opcao != 5);
 }
